@@ -1,0 +1,37 @@
+body {
+  font-size: 14px;
+}
+
+.L {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 15%;
+  background-color: #f5f5f5;
+  line-height: 30px;
+  color: #5F89EA;
+  text-align: center;
+  overflow: auto;
+}
+
+.L > div {
+  border-bottom: 1px solid #B7C0CA;
+}
+
+.L > div:hover {
+  box-shadow: 1px 1px 3px #aaaaaa;
+}
+
+.L .cur {
+  background-color: #D4E6E0;
+  box-shadow: 1px 1px 3px #aaaaaa;
+}
+
+.R {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 82%;
+}

@@ -11,7 +11,7 @@ directive.directive('slideImg', function() {
             imgs: '=',
             c: '='
         },
-        controller: ['$scope', '$element', '$rootElement', '$timeout', '$interval', function($scope, $element, $rootElement, $timeout, $interval) {
+        controller: function($scope, $element, $rootElement, $timeout, $interval) {
             /*
             S=$scope
             c = 传入来的config
@@ -128,6 +128,6 @@ directive.directive('slideImg', function() {
                 }
             };
             S.autoPlay();
-        }]
+        }
     };
 });
