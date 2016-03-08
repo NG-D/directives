@@ -1,4 +1,4 @@
-var directive = angular.module('demo', []);
+var directive = angular.module('demo', ['tmpl']);
 directive.controller('demoCtrl', ['$scope', function($scope) {
     $scope.page = localStorage.page || 0;
     $scope.directives = [{

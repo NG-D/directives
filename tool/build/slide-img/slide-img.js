@@ -6,7 +6,7 @@ directive.directive('slideImg', function() {
         restrict: 'E',
         replace: true,
         transclude: true,
-        templateUrl: '/slide-img/slide-img.html',
+        templateUrl: 'slide-img/slide-img.html',
         scope: {
             imgs: '=',
             c: '='

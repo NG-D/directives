@@ -7,7 +7,7 @@ module.exports = function(gulp, _, dir) {
         browserSync.reload();
     });
 
-    gulp.task('copy:file', ['copy:js', 'copy:html', 'copy:other', 'copy:png'], function() {
+    gulp.task('copy:file', ['compile:tmpl','copy:js', 'copy:html', 'copy:other', 'copy:png'], function() {
         console.log('copy:file');
     });
     gulp.task('copy:js', function() {

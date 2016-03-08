@@ -11,6 +11,7 @@ module.exports = function(gulp, _, dir) {
         // 'directive:tmpl', 
         // 'compile:js', 
         // 'compile:html', 
+        'sass',
         'copy:file',
         'watch'
     ]), function() {

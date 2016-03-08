@@ -18,6 +18,7 @@ body {
 
 .L > div {
   border-bottom: 1px solid #B7C0CA;
+  cursor: pointer;
 }
 
 .L > div:hover {
