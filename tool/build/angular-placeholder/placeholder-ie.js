@@ -1,12 +1,15 @@
-angular.module('directive', []).directive('placeholder', function() {
+if (!directive) {
+    var directive = angular.module('directive', []);
+}
+directive.directive('placeholder', function() {
     return {
         restrict: 'A',
         require: '?ngModel',
         link: function(scope, e, attr, ctrl) {
             try {
-                var str = '<style>.placeholder-style{color: gray;}</style>';
-                if (angular.element('.placeholder-style').length === 0) {
-                    angular.element('head').append(str);
+                var str = '<style>.placeholder-style{color: gray;};</style>';
+                if (document.getElementsByClassName('placeholder-style').length === 0) {
+                    angular.element(document).find('head').append(str);
                 }
                 var isIE = function(min, max) {
                     var navAgent = window.navigator.userAgent.toLowerCase(),
@@ -31,19 +34,20 @@ angular.module('directive', []).directive('placeholder', function() {
                     if (attr.type === 'password') {
                         e.removeClass('placeholder-style');
                         var temId = new Date().getTime();
+                        var s = attr.style || '';
+                        var c = attr.class || '';
                         e.after('<input id="' + temId +
                             '" type="text" value="' + attr.placeholder +
-                            '" autocomplete="off" style="' + attr.style +
-                            '" class="' + attr.class +
+                            '" autocomplete="off" style="' + s +
+                            '" class="' + c +
                             ' placeholder-style" />');
-                        var pwd = angular.element('#'+temId);
-                        pwd.show();
-                        e.hide();
-
-                        pwd.focus(function() {
-                            pwd.hide();
-                            e.show();
-                            e.focus();
+                        var pwd = e.next();
+                        pwd.css('display', 'inline-block');
+                        e.css('display', 'none');
+                        pwd.on('focus', function() {
+                            e.css('display', 'inline-block');
+                            pwd.css('display', 'none');
+                            e.on('focus', function() {});
                         });
                     }
                     var isFocus = false;
@@ -64,8 +68,8 @@ angular.module('directive', []).directive('placeholder', function() {
                         isFocus = false;
                         if (attr.type === 'password') {
                             if (e.val() === '') {
-                                pwd.show();
-                                e.hide();
+                                pwd.css('display', 'inline-block');
+                                e.css('display', 'none');
                             }
                         } else {
                             if (!e.val() && !ctrl.$modelValue) {

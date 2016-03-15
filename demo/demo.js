@@ -1,11 +1,12 @@
-var directive = angular.module('demo', ['tmpl']);
+var directive = angular.module('demo', []);
 directive.controller('demoCtrl', ['$scope', function($scope) {
+    //page
     $scope.page = localStorage.page || 0;
-    $scope.lazeImg = [
-        'http://u.kuxiao.cn/I5I03A==',
-        'http://u.kuxiao.cn/diDQd1==',
-        'http://u.kuxiao.cn/aGuJtx==',
-    ];
+    $scope.select = function(argIndex) {
+        $scope.page = argIndex;
+        localStorage.page = argIndex;
+    };
+    //directive list
     $scope.directives = [{
         name: 'placeholder',
     }, {
@@ -35,6 +36,7 @@ directive.controller('demoCtrl', ['$scope', function($scope) {
     }, {
         name: 'slide',
     }, ];
+    //slide
     $scope.slideConfig = {
         time: 1.5,
         stayTime: 2,
@@ -45,10 +47,17 @@ directive.controller('demoCtrl', ['$scope', function($scope) {
             height: '360px',
         }
     };
-    $scope.select = function(argIndex) {
-        $scope.page = argIndex;
-        localStorage.page = argIndex;
-    };
     $scope.imgs = ['demo/1.png', 'demo/2.png', 'demo/3.png'];
     $scope.imgs1 = ['demo/2.png', 'demo/1.png'];
+    //lazeImg
+    $scope.lazeImgConfig = {
+        id: 'r',
+        // url: 'demo/1.png',
+        style: { height: '100%', width: '100%' },
+    };
+    $scope.lazeImg = [
+        'http://u.kuxiao.cn/I5I03A==',
+        'http://u.kuxiao.cn/diDQd1==',
+        'http://u.kuxiao.cn/aGuJtx==',
+    ];
 }]);
