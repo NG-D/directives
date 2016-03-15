@@ -1,0 +1,54 @@
+<div class="subscription-list">
+    <div class="no-content" ng-if="noContent">(∩_∩)还没有内容~~~</div>
+    <div class="item" ng-repeat="item in data" ng-class="{own: type == 'own'}" ng-if="!item.cancelfollowsFlag">
+        <div class="item-info">
+            <a ui-sref="watch.voice({vid: item.aid})" ng-if="type == 'own'">
+                <div class="title-page" ng-style="{backgroundImage: 'url('+ (picRoot + (item.cover_big || item.picbig)) +')' }">
+                </div>
+            </a>
+            <a ng-if="!type">
+                <div class="title-page" ng-style="{backgroundImage: 'url('+ (picRoot + (item.cover_big || item.picbig)) +')' }">
+                </div>
+            </a>
+            <div class="h-bar" ng-if="type == 'own'">
+                <span class="like">{{item.likes}}</span>
+                <span>{{item.title}}</span>
+                <a class="bind-btn"><img ng-src="{{icon.subscription}}">订阅</a>
+            </div>
+            <div class="a-m">
+                <div class="m" ng-repeat="author in item.author track by $index" ng-class="{r:!(($index+1)%2)}">
+                    <a class="bind-btn" ng-if="!$index && !type" ng-click="follows(item)">取消订阅</a>
+                    <div class="img" ng-style="{backgroundImage: 'url('+ (picRoot + author.avatar) +')' }">
+                    </div>
+                    <div class="c">
+                        <div class="name">{{author.nickname}}</div>
+                        <p class="color-gray">
+                            <span class="msg">{{author.introduction}}</span>
+                            <span ng-if="author.audio_count && !type">声音 {{author.audio_count}}</span>
+                        </p>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+        <div class="item-list" ng-repeat="list in item.list">
+            <a ui-sref="watch.voice({vid: list.aid})">
+                <div class="img" ng-style="{backgroundImage: 'url('+ (picRoot + list.pic) +')' }">
+                </div>
+                <div class="c">
+                    <div class="title">{{list.title}}</div>
+                    <p>
+                        <span class="time" ng-if="list.dateline">{{list.time}}</span>
+                        by 
+                        <span ng-repeat="author in list.author track by $index">
+                            <span ng-if="$index">, </span>
+                            {{author.nickname}}
+                        </span>
+                    </p>
+                </div>
+            </a>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>

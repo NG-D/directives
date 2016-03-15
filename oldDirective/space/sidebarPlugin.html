@@ -1,0 +1,8 @@
+<div class="sidebar">
+    <ul>
+        <li ng-class="sidebar.cur" ng-repeat="sidebar in sidebarList">
+            <i ng-class="sidebar.icon"></i>
+            <a ng-href="{{sidebar.href}}" ng-click="SetCur(sidebar)">{{sidebar.name}}</a>
+        </li>
+    </ul>
+</div>

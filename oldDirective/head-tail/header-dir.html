@@ -1,0 +1,163 @@
+<header>
+    <div ng-class="headMaximizeLock ? 'head-maximize' : 'head-minimize'">
+        <div ng-class="param.style">
+            <div class="image-head-rainbow decoration-ic"></div>
+            <section class="g-m-w header-area">
+                
+                <div class="minimize-logo">
+                    <a href="{{param.logo.href||'/'}}">
+                        <!-- <img ng-src="{{param.logo.small}}" alt="{{param.logo.msg}}" title="{{param.logo.msg}}" /> -->
+                        <img src="/images/icon/logo-small.png" height="43" />
+                    </a>
+                </div>
+
+                <nav class="minimize-nav">
+                    <ul>
+                        <li ng-repeat="item in navList track by $index" ng-class="item.class">                                
+                            <a href="{{item.href || ''}}" target="{{item.target || '_self'}}">
+                                {{item.name}}
+                            </a>
+                            <div ng-if="item.child.length">
+                                <ul>
+                                    <li ng-repeat="c in item.child">
+                                        <a href="{{c.href || ''}}" target="{{c.target || '_self'}}">{{c.name}}</a>
+                                    </li>
+                                </ul>                                    
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="logo">
+                    <a href="{{param.logo.href||'/'}}">
+                        <img ng-src="{{param.logo.large}}" alt="{{param.logo.msg}}" title="{{param.logo.msg}}" />
+                    </a>
+                </div>
+                
+                <div class="top-user-menu-bar" ng-class="{clearminw: user.account}">
+                    <top-user-menu user="user" item-list="itemList"></top-user-menu>
+                </div>
+                
+                <search-dir></search-dir>
+
+            </section>
+            <section class="nav-area">
+                <div class="g-m-w">
+                    <div class="n-categories" 
+                        ng-controller="categoriesCtrl" 
+                        ng-mouseenter="service.mouseenter(hover)" 
+                        ng-mouseleave="service.mouseleave(hover)">
+                        <div class="dt">全部课程</div>
+                        <div class="dd" id="by-categories" ng-show="categoriesUnfoldLock || hover.mouseEnterLock">
+                            <div class="image-giraffe giraffe-icon"></div>
+                            <!-- <loader-ui show="byCategoriesLoading" style="padding:100px 0 0;opacity:.2"></loader-ui> -->
+                            <div class="dd-inner">
+                                <!-- default style -->
+                                <div class="item" 
+                                    ng-repeat="item in categoriesListStyle1 track by $index" 
+                                    ng-mouseenter="service.mouseenter(item)"
+                                    ng-mouseleave="service.mouseleave(item)"
+                                    ng-show="$index<5 || hover.mouseEnterLock">
+                                    <div class="layer">
+                                        <h3>
+                                            <a href="" ng-click="goToCategory(item.name)" title="{{item.name}}">{{item.name}}</a>
+                                        </h3>
+                                        <div class="hot-word">
+                                            <a href="" class="text-of" 
+                                                ng-repeat="child in item.child track by $index" 
+                                                ng-show="$index<3"
+                                                ng-click="goToCategory(item.name,child.name)"
+                                                title="{{child.name}}">{{child.name}}</a>
+                                        </div>
+                                        <i>&gt;</i>
+                                    </div>
+                                    <div class="sub" ng-show="item.mouseEnterLock">
+                                        <div class="inner">
+                                            <dl class="card" ng-repeat="child in item.child track by $index">
+                                                <dt>
+                                                    <a href="" class="f-r" ng-click="goToCategory(item.name,child.name)">更多&gt;&gt;</a>
+                                                    <a href="" 
+                                                        ng-click="goToCategory(item.name,child.name)"
+                                                        title="{{child.name}}">{{child.name}}</a>
+                                                </dt>
+                                                <dd>
+                                                    <a href=""  class="text-of" 
+                                                        ng-repeat="unit in child.child track by $index"
+                                                        ng-click="goToCategory(item.name,child.name,unit.name)" 
+                                                        ng-show="$index<15" 
+                                                        title="{{unit.name}}">{{unit.name}}</a>
+                                                </dd>
+                                            </dl>
+                                            <!-- <div class="more-srot" ng-show="item.child.length>3" ng-click="goToCategory(item.name)"><a class="f-r">更多分类&gt;&gt;</a>. . . </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- default end -->
+
+                                <!-- aikexue.com style -->
+                                <div ng-repeat="list in categoriesListStyle2 track by $index">
+                                    <div class="big-sort"><a href="" ng-click="goToCategory(list.name)" title="{{list.name}}">{{list.name}}</a></div>
+                                    <div class="item" 
+                                        ng-repeat="item in list.child track by $index" 
+                                        ng-mouseenter="service.mouseenter(item)"
+                                        ng-mouseleave="service.mouseleave(item)">
+                                        <div class="layer">
+                                            <h3>
+                                                <a href="" ng-click="goToCategory(list.name,item.name)" title="{{item.name}}">{{item.name}}</a>
+                                            </h3>
+                                            <i>&gt;</i>
+                                        </div>
+                                        <div class="sub" ng-show="item.mouseEnterLock">
+                                            <div class="inner">
+                                                <dl class="card" ng-repeat="child in item.child track by $index">
+                                                    <dt>
+                                                        <a href="" class="f-r" ng-click="goToCategory(list.name,item.name,child.name)">更多&gt;&gt;</a>
+                                                        <a href="" 
+                                                            ng-click="goToCategory(list.name,item.name,child.name)"
+                                                            title="{{child.name}}">{{child.name}}</a>
+                                                    </dt>
+                                                    <dd>
+                                                        <a href=""  class="text-of" 
+                                                            ng-repeat="unit in child.child track by $index"
+                                                            ng-click="goToCategory(list.name,item.name,child.name,unit.name)" 
+                                                            ng-show="$index<10" 
+                                                            title="{{unit.name}}">{{unit.name}}</a>
+                                                    </dd>
+                                                </dl>
+                                                <!-- <div class="more-srot" ng-show="item.child.length>4" ng-click="goToCategory(list.name,item.name)"><a class="f-r">更多分类&gt;&gt;</a>. . . </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- aikexue.com end -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <nav class="nav">
+                        <ul>
+                            <li ng-repeat="item in navList track by $index" ng-class="item.class">                                
+                                <a href="{{item.href || ''}}" target="{{item.target || '_self'}}">
+                                    {{item.name}}
+                                </a>
+                                <div ng-if="item.child.length">
+                                    <ul>
+                                        <li ng-repeat="c in item.child">
+                                            <a href="{{c.href || ''}}" target="{{c.target || '_self'}}">{{c.name}}</a>
+                                        </li>
+                                    </ul>                                    
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="extra" ng-show="">
+                        <a href=""  class="icf t-icf">名师认证</a>
+                        <a href=""  class="icf e-icf">真实评价</a>
+                        <a href=""  class="icf r-icf">随时退</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,43 @@
+<div id="upload-img" position="fixed">
+    <div class="cropper-tool-a">
+        <div class="cropper-tool-b">
+            <div class="up-header jf-drag">
+                <div class="f-l">上传图片</div>
+                <div class="f-r">
+                    <a ng-click="cancelImg()">
+                        <i class="fa fa-times fs-20"></i>
+                    </a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="up-body">
+                <div class="show-tool f-l">
+                    <div class="cropper-img" style="">
+                        <img ng-src="{{newImg}}" alt="Picture" src="img/icon-65.gif" />
+                    </div>
+                    <div id="view-img" style="display:none;"></div>
+                    <input type="file" id="input-image" style="display:none;" />
+                </div>
+                <div class="show-line"></div>
+                <div class="show-pre f-l">
+                    <div class="pd-20">
+                        <span class="name-img">预览：</span>
+                        <div class="img-preview"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div id="img-show-cover" class="loading" ng-show="upLoading">
+                    <div class="cover-img" style="">
+                        <img alt="loading..." src="img/loading1.gif" class="mg-r10" /> 上传中...
+                    </div>
+                </div>
+            </div>
+            <div class="up-footer">
+                <div class="btn-grp">
+                    <a ng-click="confirmImg()" class="confirm mg-r10">上传</a>
+                    <a ng-click="cancelImg()" class="cancel mg-l10">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

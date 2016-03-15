@@ -1,0 +1,123 @@
+@import '../../style/common/mixin';
+@import '../../style/common/var';
+@keyframes sidebarSlide {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes sidebarHide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.personal-center {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 16rem;
+    background: white;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, .5);
+    z-index: 8;
+    @include transition;
+    overflow: auto;
+    min-height: 20rem;
+    animation: sidebarSlide 0.3s;
+    &.side-bar-hide {
+        animation: sidebarHide 0.3s;
+    }
+    .user-info {
+        padding: 1.5rem 1rem;
+        background-image: url('/image/bg/user_sidebar_top_bg.png');
+        background-size: cover;
+        background-position: center;
+    }
+    .user-signature {
+        font-size: 0.8rem;
+        margin-top: 0.2rem;
+        line-height: 1rem;
+        height: 2rem;
+        @include line-clamp(2);
+        width: 8.5rem;
+    }
+    .user-detail-content {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 0.5rem;
+        font-size: 1rem;
+        color: $color-text-white;
+        a {
+            color: $color-text-white;
+        }
+    }
+    .balance-center {
+        text-align: center;
+        padding: 0.4rem 0.8rem;
+        border-bottom: 1px solid $color-bd-light-gray;
+        a {
+            padding: 0.2rem 0;
+            display: inline-block;
+            width: 6rem;
+            text-align: center;
+            &:first-child {
+                border-right: 1px solid $color-bd-orange;
+            }
+        }
+    }
+}
+
+.user-setting {
+    a {
+        color: $color-text-primary;
+        text-decoration: none;
+    }
+    .icon {
+        margin-right: 0.2rem;
+        vertical-align: middle;
+        img {
+            width: 1.1rem;
+        }
+    }
+    .menu-list {
+        position: absolute;
+        top: 9.6rem;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        @include overflow-scroll;
+        li {
+            position: relative;
+        }
+        a {
+            display: block;
+            vertical-align: top;
+        }
+        .icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0.8rem;
+        }
+        .menu-name {
+            display: block;
+            padding: 0.8rem 0;
+            margin-left: 2.6rem;
+        }
+        .feature-disabled {
+            background: $color-bd-light-gray;
+            // a {
+            //     color: lighten($color-text-minor, 20%);
+            // }
+            .menu-name {
+                margin-left: 1rem;
+                background: none;
+            }
+        }
+    }
+}

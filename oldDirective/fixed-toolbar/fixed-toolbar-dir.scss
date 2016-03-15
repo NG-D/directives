@@ -1,0 +1,146 @@
+/**
+ * Created by FENGSB on 2015/8/24.
+ */
+
+/* fixed-toolbar start -------------------------------- */
+
+@keyframes showfixedtool {
+    from {
+        right: -200px;
+    }
+    to {
+        right: 10px;
+    }
+}
+
+.fixed-toolbar {
+    position: fixed;
+    z-index: 18;
+    right: 10px;
+    top: 50%;
+    height: 0;
+    margin-top:-100px;
+    transition:transform .3s ease-in;
+    transform: translate(0, -50%);
+    animation: showfixedtool .5s ease-out;
+
+    .grid {
+        border: 3px solid rgba(200, 200, 200, .5);
+        background: white;
+        width: 66px;
+        min-height: 66px;
+        text-align: center;
+        margin: 8px 0;
+        position: relative;
+        color: #808080;
+        cursor: default;
+        transition:transform .3s ease-in .1s;
+
+        &:hover{
+            border-color: rgba(250, 250, 250, .7);
+            background-color: #02c0b9;
+            color: white;
+
+            .panel{
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            .ic{
+                background-position: -66px 0;
+            }
+        }
+    }
+
+    .panel-amit{
+        transition: .2s ease-out .1s;
+    }
+
+    .panel {
+        position: absolute;
+        right: 100%;
+        bottom: 0;
+        margin-right: 13px;
+        background: #02c0b9;
+        color: white;
+        padding: 9px;
+        border: 1px solid rgba(250, 250, 250, .7);        
+        transform: scale(0);
+        transform-origin: right 150px;
+        opacity: 0;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
+
+        &::before {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 0;
+            border-width: 10px 0 10px 10px;
+            border-style: solid;
+            bottom: 10px;
+            left: 100%;
+            border-color: transparent #02c0b9;
+            box-sizing: border-box;
+        }
+
+        &::after {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 0;
+            border-width: 11px 0 11px 11px;
+            border-style: solid;
+            bottom: 9px;
+            left: 100%;
+            border-color: transparent rgba(250, 250, 250, .9);
+            box-sizing: border-box;
+            z-index: -1;
+        }
+
+        p{
+            padding: 10px 0 2px;
+        }
+    }
+
+    .font{
+        padding: 0 0 10px;
+    }
+
+    .tab-top {
+        cursor:pointer;
+        transform: translate(100px, 0);
+
+        .ic {
+            width: 66px;
+            height: 66px;
+            display: block;
+            vertical-align: top;
+            background: url(/images/icon/to-top.png) no-repeat 0 0;
+            transition: .3s ease-out .1s;
+        }
+
+        &.visible {
+            transform: translate(0, 0);
+        }
+    }
+
+    .d-app {
+        .ic {
+            width: 66px;
+            height: 66px;
+            display: block;
+            vertical-align: top;
+            background: url(/images/icon/qr.png) no-repeat 0 0;
+            transition: .3s ease-out .1s;
+        }
+    }
+
+}
+
+.aikexue-fixed-toolber{
+    margin-top:-50px;
+    .d-app{
+        display:none;
+    }
+}
+

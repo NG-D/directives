@@ -1,6 +1,11 @@
 var directive = angular.module('demo', ['tmpl']);
 directive.controller('demoCtrl', ['$scope', function($scope) {
     $scope.page = localStorage.page || 0;
+    $scope.lazeImg = [
+        'http://u.kuxiao.cn/I5I03A==',
+        'http://u.kuxiao.cn/diDQd1==',
+        'http://u.kuxiao.cn/aGuJtx==',
+    ];
     $scope.directives = [{
         name: 'placeholder',
     }, {
@@ -8,7 +13,7 @@ directive.controller('demoCtrl', ['$scope', function($scope) {
     }, {
         name: 'drag',
     }, {
-        name: 'slide',
+        name: 'lazyImg',
     }, {
         name: 'slide',
     }, {

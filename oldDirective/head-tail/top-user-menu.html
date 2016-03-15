@@ -1,0 +1,93 @@
+<div class="top-user-menu">
+    <div style="font-size:14px;line-height:40px;" ng-show="loginReady && !loginReady.flag">
+        <a href="" ng-click="login()" id="login" class="color-cyan" style="background:url(/images/icon/login-user-ic.png) no-repeat 0 center;padding-left:20px;">马上登录</a>
+        <span style="color:#ececec;margin:0 8px;"> | </span>
+        <a href="" ng-click="register()" class="color-cyan">注册</a>
+    </div>
+    <!-- <div class="menber-link v-style" ng-show="loginReady && loginReady.flag">
+        <a href="" class="u-info" rel="member_link">
+            <img src="/images/face/d-face-1.png" class="face-img" width="40" height="40" rel="user_face" alt="FENGSB" />
+            <span class="name" rel="user_name" title="{{user.account}}">{{user.account}}</span>
+            <i class="x-arrow-dowm">&gt;</i>
+        </a>
+        <div class="u-panel">
+            <div class="tup-box">
+                <div class="tup-operate">
+                    <div class="card-links">
+                        <a ng-repeat="item in itemList"
+                            ng-href="{{item.href || ''}}"
+                            ng-click="listClick(item.name)"
+                            ng-class="'key '+item.icon">
+                            <i></i>
+                            <span>{{item.name}}</span>
+                        </a>
+                        <a href="{{personalData}}" target="_blank" class="key">
+                            <i></i>
+                            <span>设置</span>
+                        </a>
+                        <a href="" class="key" ng-click="logout()">
+                            <i></i>
+                            <span>退出</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="menber-link" ng-show="loginReady && loginReady.flag">
+        <a href="" class="u-info" rel="member_link">
+            <img src="/images/face/d-face-1.png" class="face-img" width="40" height="40" rel="user_face" alt="FENGSB" />
+            <span class="name" rel="user_name" title="{{user.account}}">{{user.account}}</span>
+            <i class="x-arrow-dowm">&gt;</i>
+        </a>
+        <div class="u-panel">
+            <div class="tup-box">
+                <div class="tup-info" rel="user_info_box">
+                    <div class="user-head" rel="user_face_box">
+                        <a href="">
+                            <img src="/images/face/d-face-1.png" width="96" height="96" class="face-img" rel="user_face" alt="FENGSB" />
+                        </a>
+                    </div>
+                    <div class="user-identity">
+                        <p class="user-name text-of">
+                            <a href="" rel="user_name" title="{{user.account}}">{{user.account}}</a>
+                        </p>
+                        <p class="attestation-un" ng-class="{'attestation':attestation=='已认证'}">
+                            <i><img src="/images/icon/attestation-yellow.png" height="14" /></i>
+                            <span>{{attestation}}</span>
+                        </p>
+                        <!-- <span class="mg-r15" rel="identity" ng-show="user.identity">身份：{{user.identity}}</span>
+                        <span class="mg-r15" rel="user_empiric">正在学习：12门课程</span>
+                        <span class="mg-r15" rel="user_empiric">经验：168</span> -->
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="tup-operate">
+                    <div class="card-sets">
+                        <a href="{{applySpaceUrl}}" class="key f-l">
+                            <i><img src="/images/icon/attestation.png" height="14" /></i>
+                            <span class="text-4f">认证管理</span>
+                        </a>
+                        <a href="{{personalData}}" target="_blank" class="key f-l">
+                            <i><img src="/images/icon/settings.png" height="14" /></i>
+                            <span class="text-4f">设置</span>
+                        </a>
+                        <a href="" class="key f-r" ng-click="logout()">
+                            <i><img src="/images/icon/logout.png" height="14" /></i>
+                            <span class="text-4f">退出</span>
+                        </a>
+                    </div>
+                    <div class="card-links">
+                        <a ng-repeat="item in itemList"
+                            ng-href="{{item.href || ''}}"
+                            ng-click="listClick(item.name)"
+                            ng-class="item.name == '...' ? 'disabled key '+item.icon : 'key '+item.icon">
+                            <i></i>
+                            <span>{{item.name}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

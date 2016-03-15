@@ -1,0 +1,122 @@
+/**
+ * Created by FENGSB on 2015/8/12.
+ */
+
+/* lazy-img start -------------------------------- */
+.lazy-img{
+	background: #e9e9e9 url(/images/icon/gray-default-img.png) no-repeat center center;
+	background-size: contain;
+	position: relative;
+	overflow: hidden;
+
+	.light {
+		position: absolute;
+		z-index: 3;
+		left: 0%;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		overflow: hidden;
+		transition: left .35s, opacity .35s;
+		background: url(/images/icon/light.png) no-repeat center top;
+		background-size: 100% 100%;
+		opacity: 0;
+	}
+
+	img {
+		opacity: 0;
+		min-width: 100%;
+		min-height: 100%;
+		max-width: 100%;
+		transition:opacity .3s,transform .3s;
+	}
+
+	&.visible{
+		transform: scale(1);
+		background-image:none;
+
+		img {
+			opacity: 1;
+		}
+
+		&:hover{
+			transform: scale(1);
+			img {
+				opacity: .8;
+				transform: scale(1.1);
+			}
+
+			.light {
+				left: 50%;
+				opacity: .7;
+			}
+		}
+	}
+
+	&.error{
+		background-image:url(/images/icon/gray-error-img.png);
+
+		img{
+			opacity: 0;
+		}
+	}
+
+	&.noscale:hover img,
+	&.notransform:hover img{
+		transform: initial;
+	}
+
+	&.notransform img{
+		transition:initial;
+	}
+}
+
+/* loader-inner start -------------------------------- */
+.loader-inner {
+	text-align: center;
+	padding: 10px;
+}
+
+.line-scale{
+	> div{
+		background-color: rgba(0, 0, 0, .3);
+		width: 4px;
+		height: 35px;
+		border-radius: 2px;
+		margin: 2px;
+		animation-fill-mode: both;
+		display: inline-block;
+
+		&:nth-child(1) {
+			animation: line-scale 1s 0.1s infinite cubic-bezier(.2, .68, .18, 1.08);
+		}
+
+		&:nth-child(2) {
+			animation: line-scale 1s 0.2s infinite cubic-bezier(.2, .68, .18, 1.08);
+		}
+
+		&:nth-child(3) {
+			animation: line-scale 1s 0.3s infinite cubic-bezier(.2, .68, .18, 1.08);
+		}
+
+		&:nth-child(4) {
+			animation: line-scale 1s 0.4s infinite cubic-bezier(.2, .68, .18, 1.08);
+		}
+
+		&:nth-child(5) {
+			animation: line-scale 1s 0.5s infinite cubic-bezier(.2, .68, .18, 1.08);
+		}
+	}
+}
+
+@keyframes line-scale {
+	0% {
+		transform: scaley(1);
+	}
+	50% {
+		transform: scaley(0.4);
+	}
+	100% {
+		transform: scaley(1);
+	}
+}

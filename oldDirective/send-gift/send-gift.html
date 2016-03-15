@@ -1,0 +1,108 @@
+<div class="send-gift-wrapper" ng-class="{'hide-send-gift': hide}" >
+    <div class="send-gift-mask" ng-click="cancelSendGift()"></div>
+    <div class="send-gift-content">
+        <div class="my-balance" ng-show="!from">
+            <span>金菠萝：<span class="num">{{user.boluo}}</span></span>
+            <span>菠萝豆：<span class="num">{{user.bean}}</span></span>
+            <a href="">礼品商城 &gt;</a>
+        </div>
+        <div class="my-balance" ng-show="from =='commentator' || from == 'wonderful'">
+            <span>账号：<span class="num">{{user.boluo}}</span>金菠萝</span>
+            <a ui-sref="recharge()">去充值 &gt;</a>
+        </div>
+        <div class="gift-type" ng-show="from=='chatroom' || from == 'userTool'">
+            <button ng-class="{active: activeTab=='tool'}" ng-click="changeTab('tool')">道具</button>
+            <button ng-class="{active: activeTab=='effect'}" ng-hide="from=='userTool'" ng-click="changeTab('effect')">特效</button>
+            <a ui-sref="recharge()">去充值 &gt;</a>
+        </div>
+        <div class="gift-type" ng-show="from=='user'">
+            <button class="active">道具</button>
+            <a ui-sref="recharge()">去充值 &gt;</a>
+        </div>
+        <div class="gift-content"  ng-hide="from=='commentator' || from == 'wonderful'">
+            <ul class="recieve-gift">
+                <li ng-repeat="gift in gifts" ng-class="{'gift-selected': selected.name===gift.name}" ng-click="selectGift(gift)">
+                    <div class="gift-pic">
+                        <span class="gift-num">{{gift.num}}</span>
+                        <img ng-src="{{picRoot + gift.pic}}" alt="">
+                    </div>
+                    <p>{{gift.name}}</p>
+                </li>
+            </ul>
+            <div class="gift-price">
+                <span>{{selected.price}}</span>金菠萝/<span>{{selected.price*10}}</span>菠萝币
+            </div>
+            <div class="gift-action" ng-show="!from || from == 'user'">
+                <div class="gift-amount">
+                    <button ng-disabled="amount<=1" class="gift-less" ng-click="amount=amount-1">-</button><input type="text" ng-model="amount"><button class="gift-more" ng-click="amount=amount+1">+</button>
+                </div>
+                <button ng-click="sendGift()" class="send-btn">
+                    赠送
+                </button>
+            </div>
+            <div class="gift-action" ng-show="(from=='chatroom' || from == 'userTool') && activeTab=='tool'">
+                <div class="gift-amount">
+                    <button ng-disabled="amount<=1" class="gift-less" ng-click="amount=amount-1">-</button><input type="text" ng-model="amount"><button class="gift-more" ng-click="amount=amount+1">+</button>
+                </div>
+                <button ng-click="useMagic()" class="send-btn">
+                    使用
+                </button>
+            </div>
+            <div class="gift-action" ng-show="from=='chatroom' && activeTab=='effect'">
+                <button ng-click="useMagic(true)" class="send-btn" style="float: none;width:100%;">
+                    使用
+                </button>
+            </div>
+        </div>
+        <div class="send-to-commentator gift-content" ng-show="from=='commentator' || from == 'wonderful'">
+            <div ng-show="from == 'commentator'">
+                <div class="comm-info">
+                    <avatar url="target.avatar"></avatar>
+                    <p>{{target.nickname}}</p>
+                </div>
+                <div class="comm-gift">
+                    <p>主播收到的礼物</p>
+                    <ul>
+                        <li ng-repeat="gift in gifts">
+                            <img ng-src="{{picRoot + gift.pic}}" alt="">
+                            <p>{{gift.receives}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div ng-show="from == 'wonderful'">
+                <ul class="comm-list">
+                    <li ng-class="{active: selectedComm.nickname == target[0].nickname}" ng-click="selectComm(target[0])">
+                        <avatar url="target[0].avatar"></avatar>
+                        <span>{{target[0].nickname}}</span>
+                    </li>
+                    <li ng-class="{active: selectedComm.nickname == target[1].nickname}" ng-show="target[1]" ng-click="selectComm(target[1])">
+                        <span>{{target[1].nickname}}</span>
+                        <avatar url="target[1].avatar"></avatar>
+                    </li>
+                </ul>
+            </div>
+            <p class="gift-desc">请选择您可赠送的礼物</p>
+            <ul class="recieve-gift">
+                <li ng-repeat="gift in gifts" ng-class="{'gift-selected': selected.name===gift.name}" ng-click="selectGift(gift)">
+                    <div class="gift-pic">
+                        <span class="gift-num">{{gift.num}}</span>
+                        <img ng-src="{{picRoot + gift.pic}}" alt="">
+                    </div>
+                    <p>{{gift.name}}</p>
+                </li>
+            </ul>
+            <div class="gift-price">
+                <span>{{selected.name}}</span>：<span>{{selected.price}}</span>金菠萝或<span>{{selected.exchange}}</span>菠萝豆
+            </div>
+            <div class="gift-action">
+                <div class="gift-amount">
+                    <button ng-disabled="amount<=1" class="gift-less" ng-click="amount=amount-1">-</button><input type="text" ng-model="amount"><button class="gift-more" ng-click="amount=amount+1">+</button>
+                </div>
+                <button ng-click="useMagic()" class="send-btn">
+                    赠送
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

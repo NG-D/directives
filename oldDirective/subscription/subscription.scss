@@ -1,0 +1,133 @@
+@import '../../style/common/var';
+@import '../../style/common/mixin';
+.img-cover {
+    background: $color-bg-light-gray no-repeat center;
+    background-size: cover;
+}
+
+.subscription-list {
+    .no-content{
+        padding: $inner-width-rem * 3 $inner-width-rem;
+        font-size:1rem;
+    }
+    .item {
+        background: white;
+        margin-bottom: $inner-width-rem;
+        border-top: 1px solid $color-bd-gray;
+        border-bottom: 1px solid $color-bd-gray;
+        margin-top: -1px;
+        &.own {
+            margin-bottom:0;
+            .item-info {
+                padding: 0;
+                .c {
+                    padding-right: 0;
+                }
+                .a-m {
+                    min-height: 4.4rem;
+                    padding: $inner-width-rem;
+                    clear: both;
+                }
+            }
+        }
+    }
+    .h-bar{
+        position:relative;
+        height:35px;
+        line-height:35px;
+        background:$color-bg-blue;
+        color:white;
+        padding:0 70px 0 $inner-width-rem;
+        margin-top:-$inner-width-rem;
+        font-size:12px;
+        @include line-clamp(1);
+        .like{
+            margin-right:10px;
+        }
+        .bind-btn{
+            height:24px;
+            line-height:24px;            
+            top:50%;
+            border-radius: 24px 0 0 24px;
+            background: darken($color-bg-blue, 10%);
+            box-shadow:-1px 1px 0 rgba(250,250,250,.3);
+            img{
+                height:16px;
+                vertical-align: middle;
+                margin-top:-1px;
+                margin-right:3px;
+            }
+        }
+    }
+    .item-info {
+        padding: $inner-width-rem;
+        .img {
+            border-radius: 50%;
+            box-shadow: 0 0 3px rgba(0, 0, 0, .1) inset;
+        }
+    }
+    .title-page {
+        height: 8rem;
+        margin-bottom: 0.5rem;
+        @extend .img-cover;
+        background-size: 100% 100%;
+    }
+    .item-list {
+        border-top: 1px solid $color-bd-gray;
+        padding: $inner-width-rem;
+    }
+    .a-m {
+        position:relative;
+        clear: both;
+    }
+    .m {
+        float:left;
+        min-height: 3rem;
+        &.r{
+            float:right;
+            .img{
+                float:right;
+            }
+            .c{
+                margin-left: 0;
+                margin-right: 3.7rem;
+                text-align:right;
+            }
+        }
+    }
+    .img {
+        float: left;
+        width: 3rem;
+        height: 3rem;
+        @extend .img-cover;
+    }
+    .c {
+        line-height: 1.2rem;
+        margin-left: 3.7rem;
+        position: relative;
+    }
+    .bind-btn {
+        text-decoration: none;
+        color: white;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        background: $color-bg-orange;
+        border-radius: 3px;
+        line-height: 1.5rem;
+        padding: 0 0.5rem;
+    }
+    .name {
+        font-size: 1rem;
+        line-height: 1.6rem;
+        @include line-clamp(1);
+    }
+    .title {
+        margin-bottom: 0.5rem;
+        @include line-clamp(1);
+    }
+    .time{
+        float:right;
+    }
+}

@@ -1,0 +1,19 @@
+<div class="location-list">
+    <div class="mask" ng-click="hide(false)"></div>
+    <div class="list-wrapper">
+        <div class="list-head">
+            <button ng-click="hide(true)">完成</button>
+        </div>
+        <div class="list-body">
+            <select name="province" id="provicne" ng-change="changeProvince()" ng-model="province" class="province">
+                <option value="{{value.code}}" ng-repeat="(name, value) in locationList">{{value.dname}}</option>
+            </select>
+            <select name="city" id="city" ng-change="changeCity()" ng-model="city" ng-show="selectedProvince.child">
+                <option value="{{value.code}}" ng-repeat="(name, value) in selectedProvince.child">{{value.dname}}</option>
+            </select>
+            <select ng-model="state" name="state" id="state" ng-change="changeState()" ng-show="selectedCity.child">
+                <option value="{{value.code}}" ng-repeat="(name, value) in selectedCity.child" >{{value.dname}}</option>
+            </select>
+        </div>
+    </div>
+</div>

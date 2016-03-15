@@ -1,0 +1,44 @@
+<div class="list">
+    <div class="directly" ng-repeat="item in directlyList" ng-if="type == 'dk'">
+        <a ui-sref="watch.dk({vid: item.liveid })">
+            <div class="img bdr-3px" ng-style="{backgroundImage: 'url('+ (picRoot + item.coverbig) +')' }">
+                <span class="n">new</span>
+                <span class="pv" ng-if="item.status == 2 || item.status == 3">直播中</span>
+            </div>
+            <div class="d">
+                <span class="y" ng-if="item.language == 0">粤</span>
+                <span class="p" ng-if="item.language == 1">普</span>
+                <span>{{item.statusname}}</span>
+            </div>
+        </a>
+    </div>
+    <div class="item" ng-repeat="item in list">
+        <a ui-sref="watch.voice({vid: item.aid})" ng-if="type == 'voice'">
+            <div class="img" ng-style="{backgroundImage: 'url('+ (picRoot + item.cover) +')' }">
+                <span class="author" ng-if="item.author.length">
+                    <span ng-repeat="a in item.author track by $index">
+                        <span ng-if="$index">, </span> {{a.nickname}}
+                    </span>
+                </span>
+                <span class="y" ng-if="item.language == 0">粤</span>
+                <span class="p" ng-if="item.language == 1">普</span>
+            </div>
+            <div class="c">
+                <div class="title">{{item.name}}</div>
+            </div>
+        </a>
+        <a ui-sref="watch.dk({vid: item.liveid })" ng-if="type == 'dk' || type == 'ends'">
+            <div class="img" ng-style="{backgroundImage: 'url('+ (picRoot + item.cover) +')' }">
+            </div>
+            <div class="d">
+                <span ng-if="type == 'dk'">
+                    <span class="y" ng-if="item.language == 0">粤</span>
+                    <span class="p" ng-if="item.language == 1">普</span>
+                    <span>{{item.statusname}}</span>
+                </span>
+                <div ng-if="type == 'ends'" class="mb">{{item.membernum}}</div>
+            </div>
+        </a>
+    </div>
+    <div class="clear"></div>
+</div>

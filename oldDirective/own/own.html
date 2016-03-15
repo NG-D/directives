@@ -1,0 +1,13 @@
+<div class="related-list">
+    <div class="item" ng-repeat="item in list">
+        <a ui-sref="watch.voice({vid: item.aid})">
+            <div class="img" ng-style="{backgroundImage: 'url('+ (picRoot + item.pic) +')' }"></div>
+            <div class="c">
+                <p class="title">{{item.title}}</p>
+                <p class="if">
+                    <span class="time">{{item.time}}</span>
+                </p>
+            </div>
+        </a>
+    </div>
+</div>

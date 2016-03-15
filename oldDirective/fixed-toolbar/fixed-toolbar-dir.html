@@ -1,0 +1,15 @@
+<div ng-class="'fixed-toolbar '+param.style">
+    <div class="grid tab-top" title="回到顶部" onclick="$('html,body').stop().animate({scrollTop:0},'fast');">
+        <i class="ic"></i>
+    </div>
+    <div class="grid d-app">
+        <i class="ic"></i>
+        <p class="font">App 下载</p>
+        <div ng-class="panelAmit ? 'panel panel-amit' : 'panel'">
+            <div class="inner">
+                <div class="img"><img ng-src="{{data.qr.src}}" width="122" height="122" rel="download_kuxiao_app_qr_code" /></div>
+                <p>{{data.qr.name}}</p>
+            </div>
+        </div>
+    </div>
+</div>

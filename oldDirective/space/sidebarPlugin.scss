@@ -1,0 +1,63 @@
+/*左侧导航栏*/
+.sidebar a:link,.sidebar a:visited{
+    text-decoration: none;
+    color: #000000;
+    display: block;
+}
+.sidebar .cur {
+    background-color: #02c0b9;
+}
+.sidebar .cur a{
+    color: #ffffff;
+}
+.sidebar{
+    width: 100%;
+    float: left;
+    background-color: #ffffff;
+    border: 1px solid #e6e8e9;
+    box-shadow: 0 1px 2px #d5d7d8;
+    font-size: 18px;
+}
+.sidebar li{
+    line-height: 56px;
+}
+.sidebar i{
+    width: 26px;
+    height: 26px;
+    float: left;
+    margin:15px 8px 0px 20px;
+}
+/*左侧图标*/
+.cat-s1{background: url("/images/icon/cat-s1.png") no-repeat center;}
+.cat-s2{background: url("/images/icon/cat-s2.png") no-repeat center;}
+.cat-s3{background: url("/images/icon/cat-s3.png") no-repeat center;}
+.cat-s4{background: url("/images/icon/cat-s4.png") no-repeat center;}
+.cat-s5{background: url("/images/icon/cat-s5.png") no-repeat center;}
+.cat-s6{background: url("/images/icon/cat-s6.png") no-repeat center;}
+.cat-s7{background: url("/images/icon/cat-s7.png") no-repeat center;}
+
+
+.cat-s1-down{background: url("/images/icon/cat-s1-down.png") no-repeat center;}
+.cat-s2-down{background: url("/images/icon/cat-s2-down.png") no-repeat center;}
+.cat-s3-down{background: url("/images/icon/cat-s3-down.png") no-repeat center;}
+.cat-s4-down{background: url("/images/icon/cat-s4-down.gif") no-repeat center;}
+.cat-s5-down{background: url("/images/icon/cat-s5-down.png") no-repeat center;}
+.cat-s6-down{background: url("/images/icon/cat-s6-down.png") no-repeat center;}
+.cat-s7-down{background: url("/images/icon/cat-s7-down.png") no-repeat center;}
+
+
+
+.cat-t1{background: url("../../../img/kechengguanli.png") no-repeat center;}
+.cat-t2{background: url("../../../img/quanxianguanli.png") no-repeat center;}
+.cat-t3{background: url("../../../img/xueshengguanli.png") no-repeat center;}
+.cat-t4{background: url("../../../img/chengejiguanli.png") no-repeat center;}
+.cat-t5{background: url("../../../img/shijuanpigai.png") no-repeat center;}
+.cat-t6{background: url("../../../img/zhanghaoxinxi.png") no-repeat center;}
+
+.cat-t1-down{background: url("../../../img/kechengguanli-down.png") no-repeat center;}
+.cat-t2-down{background: url("../../../img/quanxianguanli-down.png") no-repeat center;}
+.cat-t3-down{background: url("../../../img/xueshengguanli-down.png") no-repeat center;}
+.cat-t4-down{background: url("../../../img/chengejiguanli-down.png") no-repeat center;}
+.cat-t5-down{background: url("../../../img/shijuanpigai-down.png") no-repeat center;}
+.cat-t6-down{background: url("../../../img/zhanghaoxinxi-down.png") no-repeat center;}
+

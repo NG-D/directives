@@ -1,0 +1,59 @@
+<menu class="personal-center user-setting" ng-class="{'side-bar-hide': !show}">
+    <div class="user-info" ng-style="coverBg">
+        <avatar url="user.avatar" ng-click="goToPage('user')" ></avatar>
+        <div class="user-detail-content">
+            <p ng-hide="user">请<a href="">登录</a>/<a href="">注册</a></p>
+            <div ng-show="user">
+                <p class="user-name"><a  ng-click="goToPage('user')" href="">{{user.nickname}}</a></p>
+                <p class="user-signature" ng-show="user.signature">{{user.signature}}</p>
+                <p class="user-signature edit-signature" ng-show="!user.signature"><a href="">编辑个性签名</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="balance-center">
+        <a href="" ng-click="goToPage('recharge')"><i class="icon"><img src="/image/icon/user_sidebar_recharge.png" alt=""></i>充值</a>
+        <a href="" ng-click="goToPage('mall')"><i class="icon"><img src="/image/icon/user_sidebar_shop.png" alt=""></i>商城</a>
+    </div>
+    <ul class="menu-list">
+        <li class="feature-disabled"><a href="">
+                <span class="menu-name list-view"><span>菠萝球迷圈</span><span class="count list-item-content text-orange">{{user.boloNum}}</span></span>
+            </a></li>
+        <li><a href="" ng-click="goToPage('user.activity')">
+                <i class="icon"><img src="/image/icon/user_sidebar_active.png" alt=""></i>
+                <span class="menu-name list-view"><span>活跃指数</span><span class="count list-item-content">{{user.activity}}</span></span>
+            </a></li>
+        <!-- <li><a href="">
+                <i class="icon"><img src="/image/icon/user_sidebar_star.png" alt=""></i>
+                <span class="menu-name list-view"><span>守护星指数</span><span class="count list-item-content">{{user.stars}}</span></span>
+            </a></li> -->
+        <li><a href="" ng-click="goToPage('charm')">
+                <i class="icon"><img src="/image/icon/user_sidebar_charm.png" alt=""></i>
+                <span class="menu-name list-view"><span>魅力指数</span><span class="count list-item-content">{{user.charm}}</span></span>
+            </a></li>
+        <!-- <li><a href="">
+                <i class="icon"><img src="/image/icon/user_sidebar_friend.png" alt=""></i>
+                <span class="menu-name list-view"><span>我的好友</span><span class="count list-item-content"></span></span>
+            </a></li> -->
+        <li><a href="" ng-click="goToPage('user.msg')">
+                <i class="icon"><img src="/image/icon/user_sidebar_message.png" alt=""></i>
+                <span class="menu-name list-view"><span>我的消息</span><span class="count list-item-content"></span></span>
+            </a></li>
+        <li><a href="" ng-click="goToPage('task')">
+                <i class="icon"><img src="/image/icon/user_sidebar_task.png" alt=""></i>
+                <span class="menu-name list-view"><span>我的任务</span><span class="count list-item-content"></span></span>
+            </a></li>
+        <!-- <li><a href="">
+                <i class="icon "><img src="/image/icon/list_box_icon.png" alt=""></i>
+                <span class="menu-name list-view"><span>天天寻宝</span><span class="count list-item-content"></span></span>
+            </a></li> -->
+        <li><a href="" ng-click="goToPage('data')">
+                <i class="icon"><img src="/image/icon/user_sidebar_data.png" alt=""></i>
+                <span class="menu-name list-view"><span>完场数据</span><span class="count list-item-content"></span></span>
+            </a></li>
+        <!-- <li><a href="">
+                <i class="icon"><img src="/image/icon/list_gif_icon.png" alt=""></i>
+                <span class="menu-name list-view"><span>我的奖品</span><span class="count list-item-content"></span></span>
+            </a></li> -->
+    </ul>
+</menu>
+<section class="view-mask" ng-click="hide()"></section>

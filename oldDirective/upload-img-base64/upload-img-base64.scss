@@ -1,0 +1,135 @@
+/**
+ * creat by linj uploadImgBase64 css
+ */
+
+@import '../../../styles/module/_var';
+.cropper-tool-position {
+    background: $color-bg-black;
+    height: 100%;
+    left: 0;
+    opacity: 0.3;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.cropper-tool {
+    display: none;
+    left: 0;
+    position: fixed;
+    top: 25%;
+    width: 100%;
+    z-index: 98889;
+    .up-header {
+        background-color: $color-bg-green;
+        border-bottom: 1px solid $color-border-light-gray;
+        color: $color-text-white;
+        font-size: $font-size-16;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 20px;
+    }
+    .up-body {
+        height: 310px;
+        position: relative;
+    }
+    .mg-20 {
+        margin: 20px;
+    }
+    .pd-20 {
+        padding: 20px;
+    }
+    .fs-20 {
+        font-size: $font-size-20;
+    }
+    .cropper-tool-a {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 6px;
+        margin: auto;
+        padding: 6px;
+        position: relative;
+        width: 520px;
+    }
+    .cropper-tool-b {
+        background-color: $color-bg-white;
+        margin: auto;
+        position: relative;
+    }
+    .loading {
+        background: $color-text-black;
+        height: 100%;
+        left: 0;
+        opacity: 0.6;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+        .cover-img {
+            color: $color-text-white;
+            font-size: $font-size-36;
+            margin-top: 130px;
+            text-align: center;
+            width: 100%;
+        }
+    }
+    .show-tool {
+        height: 100%;
+        width: 60%;
+        .cropper-img {
+            height: 80%;
+            padding: 10%;
+            width: 80%;
+        }
+    }
+    .show-line {
+        border-right: 1px solid $color-border-light-gray;
+        height: 100%;
+        left: 60%;
+        position: absolute;
+    }
+    .show-pre {
+        height: 100%;
+        width: 40%;
+        .show-pre-r {
+            padding: 0 20px;
+        }
+        .name-img {
+            font-size: $font-size-18;
+        }
+        .img-preview {
+            border: 1px solid $color-border-light-gray;
+            height: 100px;
+            margin-top: 20px;
+            overflow: hidden;
+            width: 150px;
+        }
+    }
+    .up-footer {
+        background-color: $color-bg-light-blue;
+        height: 60px;
+    }
+    .btn-grp {
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        .confirm {
+            background-color: $color-bg-green;
+            color: $color-text-white;
+        }
+        .cancel {
+            background-color: $color-text-white;
+        }
+    }
+    .btn-grp a {
+        border: 1px solid $color-border-light-gray;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block;
+        font-size: $font-size-16;
+        height: 34px;
+        line-height: 34px;
+        text-decoration: none;
+        width: 90px;
+    }
+}

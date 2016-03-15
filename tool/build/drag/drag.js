@@ -13,7 +13,6 @@ directive.directive('drag', function($document) {
                         y = 0;
                     element.css({
                         position: 'relative',
-                        border: '1px solid rgb(206, 199, 199)',
                         cursor: 'pointer'
                     });
                     element.on('mousedown', function(event) {

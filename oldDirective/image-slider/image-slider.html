@@ -1,0 +1,31 @@
+<div>
+    <div class="image-slider">
+        <ul class="prev-list" ng-hide="show">
+            <li ng-repeat="img in images track by $index">
+                <img ng-src="{{img}}" class="s-img" alt="" ng-click="showBigPic($index)">
+            </li>
+        </ul>
+        <div ng-show="show" class="image-slider-wrapper">
+            <div class="slider-action">
+                <ul>
+                    <li><a ng-click="show=false" href="javascript:;"><img src="img/8_03.png" alt="">收起</a></li>
+                    <li><a ng-href="{{images[currentImage]}}" target="_blank"><img src="img/8_05.png" alt="">查看大图</a></li>
+                    <li><a ng-click="turnLeft()" href="javascript:;"><img src="img/8_07.png" alt="">向左旋转</a></li>
+                    <li><a ng-click="turnRight()" href="javascript:;"><img src="img/8_09.png" alt="">向右旋转</a></li>
+                </ul>
+            </div>
+            <div class="slider-main {{cursor}}" ng-click="nextOrPrev()" ng-mousemove="showCursor($event)">
+                <img ng-src="{{images[currentImage]}}" alt="" ng-style="{'max-width': bigImgWidth, 'max-height': 325, transform: 'rotate(' + rotateDeg() + 'deg)','-webkit-transform': 'rotate(' + rotateDeg() + 'deg)', '-ms-transform': 'rotate(' + rotateDeg() + 'deg)', '-moz-transform': 'rotate(' + rotateDeg() + 'deg)', transition:'all 0.2s'}">
+            </div>
+            <div class="slider-all">
+                <a href="javascript:;" ng-class="{active: showToggle('left')}" ng-click="toggleSlide('left')" class="nav-btn left">&lt</a>
+                <ul>
+                    <li ng-repeat="img in images track by $index" ng-style="{left: left + 'px'}">
+                        <img ng-src="{{img}}" ng-click="switchImg($index)" alt="" class="slider-images" ng-class="{active: currentImage==$index}">
+                    </li>
+                </ul>
+                <a href="javascript:;" ng-class="{active: showToggle('right')}" ng-click="toggleSlide('right')" class="nav-btn right">&gt</a>
+            </div>
+        </div>
+    </div>
+</div>
