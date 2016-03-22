@@ -3,7 +3,7 @@ if (!directive) {
 }
 directive.directive('lazyImg', ['$document', function($document) {
     return {
-        templateUrl: 'lazy/lazy-img.html',
+        template:'<div><div class="light"></div><img ng-src="{{url}}" width="{{width}}" height="{{height}}" ng-style="style" ng-class="class" alt="暂无图片"></div>',
         restrict: 'E',
         replace: true,
         transclude: true,
