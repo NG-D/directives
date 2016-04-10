@@ -34,7 +34,7 @@
             <span ng-bind="n.name"></span>
         </div>
     </div>
-    <div class="R" id='r'>
+    <div class="R" id="r">
         <section ng-show="page==0">
             <input type="text" ng-model="d.user" placeholder="请输入用户名" />
             <br>
@@ -47,18 +47,37 @@
             <slide-img imgs="imgs" c="slideConfig"></slide-img>
         </section>
         <section ng-show="page==2">
-            <div class="drag">
-                <div>点我拖</div>
-                <div>X</div>
+            <div class="drag b-g" c="dragConfig">
+                <div class="dialog-head">
+                    <div class="f-l">这里是标题</div>
+                    <div class="f-r">X</div>
+                    <div class="clear"></div>
+                </div>
+                <div>你好！</div>
             </div>
-            <drag class="b-g">你好！</drag>
-            <div drag class="b-g">
-                <div class="f-l">你好！</div>
-                <div class="f-r">X</div>
-                <div class="clear"></div>
+            <div class="h20"></div>
+            <div drag class="b-g" c="dragConfig">
+                <div class="dialog-head">
+                    <div class="f-l">这里是标题</div>
+                    <div class="f-r">X</div>
+                    <div class="clear"></div>
+                </div>
+                <div>你好！</div>
             </div>
+            <div class="h20"></div>
+            <drag c="dragConfig">
+                <div class="dialog-head">
+                    <div class="f-l">这里是标题</div>
+                    <div class="f-r">X</div>
+                    <div class="clear"></div>
+                </div>
+                <div>你好！</div>
+            </drag>
         </section>
-        <section ng-show="page==3" class="lazy-img">
+        <section ng-show="page==3">
+            暂无
+        </section>
+        <section ng-show="page==4" class="lazy-img">
             <p>lazyImg</p>
             <lazy-img src="i" class="img" c="lazeImgConfig" ng-repeat="i in lazeImg"></lazy-img>
             <lazy-img src="lazeImg[0]" c="lazeImgConfig" class="img"></lazy-img>
@@ -68,7 +87,6 @@
             <lazy-img src="lazeImg[1]" c="lazeImgConfig" class="img"></lazy-img>
             <lazy-img src="lazeImg[2]" c="lazeImgConfig" class="img"></lazy-img>
         </section>
-        <section ng-show="page==4"></section>
         <section ng-show="page==5"></section>
         <section ng-show="page==6"></section>
         <section ng-show="page==7"></section>
