@@ -1,3 +1,4 @@
 /libs
 /tool/node_modules
 /L
+/tool/gulp
