@@ -1,11 +1,15 @@
 var directive = angular.module('demo', []);
-directive.controller('demoCtrl', ['$scope', function($scope) {
+directive.controller('demoCtrl', ['$scope', '$timeout', function($scope, $timeout) {
     //page
     $scope.page = localStorage.page || 0;
     $scope.select = function(argIndex) {
         $scope.page = argIndex;
         localStorage.page = argIndex;
     };
+    $scope.timeoutImg = '我不是图片';
+    $timeout(function() {
+        $scope.timeoutImg = 'http://u.kuxiao.cn/aGuJtx==';
+    }, 10000);
     //directive list
     $scope.directives = [{
         name: 'placeholder',
@@ -14,7 +18,7 @@ directive.controller('demoCtrl', ['$scope', function($scope) {
     }, {
         name: 'drag',
     }, {
-        name: 'drag-pro',
+        name: 'default img',
     }, {
         name: 'lazyImg',
     }, {

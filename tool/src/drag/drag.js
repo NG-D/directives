@@ -2,7 +2,11 @@
 c.dragAll:监听所有有class的子元素
 c.dragClass:要监听的class，无此class或留空为整个元素drag
  */
-if (!directive) {
+try {
+    if (typeof directive !== 'object') {
+        var directive = angular.module('directive', []);
+    }
+} catch (e) {
     var directive = angular.module('directive', []);
 }
 directive.directive('drag', function($document) {

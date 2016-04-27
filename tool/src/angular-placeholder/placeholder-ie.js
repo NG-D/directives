@@ -1,4 +1,8 @@
-if (!directive) {
+try {
+    if (typeof directive !== 'object') {
+        var directive = angular.module('directive', []);
+    }
+} catch (e) {
     var directive = angular.module('directive', []);
 }
 directive.directive('placeholder', function() {
