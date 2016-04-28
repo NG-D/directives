@@ -1,5 +1,6 @@
 var directive = angular.module('demo', []);
 directive.controller('demoCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+    // $('img').defaultImg({ depth: true });
     //page
     $scope.page = localStorage.page || 0;
     $scope.select = function(argIndex) {
@@ -9,7 +10,7 @@ directive.controller('demoCtrl', ['$scope', '$timeout', function($scope, $timeou
     $scope.timeoutImg = '我不是图片';
     $timeout(function() {
         $scope.timeoutImg = 'http://u.kuxiao.cn/aGuJtx==';
-    }, 10000);
+    }, 3000);
     //directive list
     $scope.directives = [{
         name: 'placeholder',
