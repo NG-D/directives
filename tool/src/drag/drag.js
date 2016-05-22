@@ -9,7 +9,7 @@ try {
 } catch (e) {
     var directive = angular.module('directive', []);
 }
-directive.directive('drag', function($document) {
+directive.directive('lDrag', function($document) {
     return {
         restrict: 'ACE',
         replace: true,

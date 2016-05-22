@@ -5,7 +5,7 @@ try {
 } catch (e) {
     var directive = angular.module('directive', []);
 }
-directive.directive('lazyImg', function($document) {
+directive.directive('lLazyImg', function($document) {
     return {
         templateUrl: '../../src/lazy/lazy-img.html',
         restrict: 'E',

@@ -5,7 +5,7 @@ try {
 } catch (e) {
     var directive = angular.module('directive', []);
 }
-directive.directive('tooltip', function($document) {
+directive.directive('lTooltip', function($document) {
     return {
         templateUrl: '../../src/tooltip/tooltip.html',
         restrict: 'A',

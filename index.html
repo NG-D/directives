@@ -41,10 +41,10 @@
             <br>
         </section>
         <section ng-show="page==1">
-            <slide-img imgs="imgs" c="slideConfig"></slide-img>
+            <l-slide-img imgs="imgs" c="slideConfig"></l-slide-img>
         </section>
         <section ng-show="page==2">
-            <div class="drag b-g" c="dragConfig">
+            <div class="l-drag b-g" c="dragConfig">
                 <div class="dialog-head">
                     <div class="f-l">这里是标题</div>
                     <div class="f-r">X</div>
@@ -53,7 +53,7 @@
                 <div>你好！</div>
             </div>
             <div class="h20"></div>
-            <div drag class="b-g" c="dragConfig">
+            <div l-drag class="b-g" c="dragConfig">
                 <div class="dialog-head">
                     <div class="f-l">这里是标题</div>
                     <div class="f-r">X</div>
@@ -62,39 +62,41 @@
                 <div>你好！</div>
             </div>
             <div class="h20"></div>
-            <drag c="dragConfig">
+            <l-drag c="dragConfig">
                 <div class="dialog-head">
                     <div class="f-l">这里是标题</div>
                     <div class="f-r">X</div>
                     <div class="clear"></div>
                 </div>
                 <div>你好！</div>
-            </drag>
+            </l-drag>
         </section>
         <section ng-show="page==3">
             <div>
                 <h1>使用本插件时，img标签要使用ng-src才生效！</h1>
             </div>
-            <ng-img c="{img:lazeImg[0],divStyle:{width:'160',height:'90px'},auto:true}" alt="'默认图'"></ng-img>
+            <b>img l-img</b>
+            <l-img c="{img:lazeImg[0],divStyle:{width:'160',height:'90px'},auto:true}" alt="'默认图'"></l-img>
             <br>
-            <ng-img c="{img:'sb',default:'demo/1.jpg',divStyle:{width:'160px',height:'90px'},title:'这是一张默认图'}" alt="'默认图'"></ng-img>
-            <img ng-src="{{lazeImg[0]}}" alt="">
-            <img ng-src="http://www.a.jpg" alt="">
-            <!-- <img ng-src="http://www.sbb.jpg" alt="" default="http://www.b.jpg">
-            <img ng-src="{{timeoutImg}}" alt=""> -->
+            <l-img c="{img:'sb',default:'demo/1.jpg',divStyle:{width:'160px',height:'90px'},title:'这是一张默认图'}" alt="'默认图'"></l-img>
+            <br>
+            <l-img c="{img:lazeImg[0],default:'demo/1.jpg',divStyle:{width:'160px',height:'90px'},title:'二'}" ng-src="" alt=""></l-img>
+            <br>
+            <l-img c="{img:lazeImg[0],default:'demo/1.jpg',divStyle:{width:'160px',height:'90px'},title:'三'}" alt=""></l-img>
+            <b>img little</b>
             <div ng-repeat="a in [1,1,1] track by $index">
                 <img src="{{lazeImg[0]}}" c="" alt="{{a}}">
             </div>
         </section>
         <section ng-show="page==4" class="lazy-img">
             <p>lazyImg</p>
-            <lazy-img src="i" class="img" c="lazeImgConfig" ng-repeat="i in lazeImg"></lazy-img>
-            <lazy-img src="lazeImg[0]" c="lazeImgConfig" class="img"></lazy-img>
-            <lazy-img src="lazeImg[1]" c="lazeImgConfig" class="img"></lazy-img>
-            <lazy-img src="lazeImg[2]" c="lazeImgConfig" class="img"></lazy-img>
-            <lazy-img src="lazeImg[0]" c="lazeImgConfig" class="img"></lazy-img>
-            <lazy-img src="lazeImg[1]" c="lazeImgConfig" class="img"></lazy-img>
-            <lazy-img src="lazeImg[2]" c="lazeImgConfig" class="img"></lazy-img>
+            <l-lazy-img src="i" class="img" c="lazeImgConfig" ng-repeat="i in lazeImg"></l-lazy-img>
+            <l-lazy-img src="lazeImg[0]" c="lazeImgConfig" class="img"></l-lazy-img>
+            <l-lazy-img src="lazeImg[1]" c="lazeImgConfig" class="img"></l-lazy-img>
+            <l-lazy-img src="lazeImg[2]" c="lazeImgConfig" class="img"></l-lazy-img>
+            <l-lazy-img src="lazeImg[0]" c="lazeImgConfig" class="img"></l-lazy-img>
+            <l-lazy-img src="lazeImg[1]" c="lazeImgConfig" class="img"></l-lazy-img>
+            <l-lazy-img src="lazeImg[2]" c="lazeImgConfig" class="img"></l-lazy-img>
         </section>
         <section ng-show="page==5"></section>
         <section ng-show="page==6"></section>

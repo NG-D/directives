@@ -5,7 +5,7 @@ try {
 } catch (e) {
     var directive = angular.module('directive', []);
 }
-directive.directive('slideImg', function() {
+directive.directive('lSlideImg', function() {
     return {
         restrict: 'E',
         replace: true,
