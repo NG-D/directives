@@ -1,0 +1,26 @@
+.ripple-p {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+    display: inline-block;
+    transform: translate(0);
+}
+
+.ripple {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 100%;
+    transform: scale(0);
+    pointer-events: none;
+    &.show {
+        animation: ripple 1s ease-out;
+    }
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}

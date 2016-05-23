@@ -23,7 +23,7 @@ directive.controller('demoCtrl', function($scope, $timeout) {
     }, {
         name: 'lazyImg',
     }, {
-        name: 'slide',
+        name: 'ripple',
     }, {
         name: 'slide',
     }, {

@@ -15,7 +15,7 @@
     <meta name="description" content="demo" />
     <!-- build:css demo/demo.min.css -->
     <link rel="stylesheet" href="demo/demo.css" />
-    <!-- <link rel="stylesheet" href="slide-img/slide-img.css" /> -->
+    <link rel="stylesheet" href="ripple/ripple.css" />
     <!-- endbuild -->
 </head>
 
@@ -98,7 +98,17 @@
             <l-lazy-img src="lazeImg[1]" c="lazeImgConfig" class="img"></l-lazy-img>
             <l-lazy-img src="lazeImg[2]" c="lazeImgConfig" class="img"></l-lazy-img>
         </section>
-        <section ng-show="page==5"></section>
+        <section ng-show="page==5">
+            <div class="ripple-div">
+                <button l-ripple class="b-blue">BUTTON attr</button>
+            </div>
+            <div class="ripple-div">
+                <l-ripple class="button b-red">BUTTON element</l-ripple>
+            </div>
+            <div class="ripple-div">
+                <div class="button b-black l-ripple">BUTTON class</div>
+            </div>
+        </section>
         <section ng-show="page==6"></section>
         <section ng-show="page==7"></section>
         <section ng-show="page==8"></section>
@@ -116,6 +126,7 @@
     <script src="drag/drag.js"></script>
     <script src="img/img.js"></script>
     <script src="lazy/lazy-img.js"></script>
+    <script src="ripple/ripple.js"></script>
     <!-- endbuild -->
 </body>
 

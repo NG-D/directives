@@ -7,7 +7,7 @@ try {
 }
 directive.directive('lLazyImg', ['$document', function($document) {
     return {
-        template:'<div><style type="text/css">body{font-size:12px}</style><div class="light"></div><img ng-src="{{url}}" width="{{width}}" height="{{height}}" ng-style="style" ng-class="class" alt="暂无图片"></div>',
+        template:'<div><style type="text/css"></style><div class="light"></div><img ng-src="{{url}}" width="{{width}}" height="{{height}}" ng-style="style" ng-class="class" alt="暂无图片"></div>',
         restrict: 'E',
         replace: true,
         transclude: true,
