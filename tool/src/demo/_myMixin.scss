@@ -313,6 +313,11 @@
     i {
         display: inline-block;
     }
+    input[type=button] {
+        -webkit-appearance: none;
+        outline: none
+    }
+    -webkit-tap-highlight-color:transparent;
 }
 
 @mixin init() {
