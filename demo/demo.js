@@ -1,14 +1,24 @@
 var directive = angular.module('demo', []);
-directive.controller('demoCtrl', ['$scope', '$timeout', '$http', function ($scope, $timeout, $http) {
+directive.controller('demoCtrl', ['$scope', '$timeout', '$http', function($scope, $timeout, $http) {
     // $('img').defaultImg({ depth: true });
     //page
     $scope.page = localStorage.page || 0;
-    $scope.select = function (argIndex) {
+    $scope.select = function(argIndex, argTarget) {
         $scope.page = argIndex;
         localStorage.page = argIndex;
+        if (argTarget) {
+            var temTop = $(argTarget).scrollTop() + $('#sec-' + argIndex).offset().top;
+            if ($(argTarget)[0].scrollHeight - temTop < $(argTarget).height()) {
+                var temH = $(argTarget).height() - $(argTarget)[0].scrollHeight + temTop;
+                $(argTarget).append('<div style="width:100%;height:' + temH + 'px"></div>');
+            }
+            if (temTop > 1) {
+                $(argTarget).stop().animate({ scrollTop: temTop }, 'slow');
+            }
+        }
     };
     $scope.timeoutImg = '我不是图片';
-    $timeout(function () {
+    $timeout(function() {
         $scope.timeoutImg = 'http://u.kuxiao.cn/aGuJtx==';
     }, 3000);
     //directive list
@@ -40,38 +50,46 @@ directive.controller('demoCtrl', ['$scope', '$timeout', '$http', function ($scop
         name: 'NULL',
     }, {
         name: 'NULL',
-    },{
+    }, {
         name: 'NULL',
-    },{
+    }, {
         name: 'NULL',
-    },{
+    }, {
         name: 'NULL',
-    },{
+    }, {
         name: 'NULL',
-    },{
+    }, {
         name: 'NULL',
-    },{
+    }, {
         name: 'NULL',
-    },{
+    }, {
         name: 'NULL',
-    },{
+    }, {
         name: 'NULL',
-    },{
+    }, {
         name: 'NULL',
-    },{
+    }, {
         name: 'NULL',
-    },{
+    }, {
         name: 'NULL',
-    },{
+    }, {
         name: 'NULL',
-    },{
+    }, {
         name: 'NULL',
-    },];
+    }, {
+        name: 'NULL',
+    }, {
+        name: 'NULL',
+    }, {
+        name: 'NULL',
+    }, {
+        name: 'NULL',
+    }, ];
     //slide
     $scope.slideConfig = {
         time: 1.5,
         stayTime: 2,
-        imgStyle: {width: '100%', height: '100%'},
+        imgStyle: { width: '100%', height: '100%' },
         class: '',
         style: {
             width: '640px',
@@ -89,7 +107,7 @@ directive.controller('demoCtrl', ['$scope', '$timeout', '$http', function ($scop
     $scope.lazeImgConfig = {
         id: 'r',
         // url: 'demo/1.png',
-        style: {height: '100%', width: '100%'},
+        style: { height: '100%', width: '100%' },
     };
     $scope.lazeImg = [
         'http://u.kuxiao.cn/I5I03A==',
@@ -100,13 +118,13 @@ directive.controller('demoCtrl', ['$scope', '$timeout', '$http', function ($scop
     $scope.rData = [];
     $scope.sData = [];
     for (var i = 0; i < 50000; i++) {
-        var a = {name: i, time: new Date()};
+        var a = { name: i, time: new Date() };
         $scope.sData.push(a);
     }
     var ii = 0;
     var last = 1;
     var c = 200;
-    $scope.testRepeat = function () {
+    $scope.testRepeat = function() {
         if (!last) {
             ii = ii + 3 * c;
         }
@@ -121,7 +139,7 @@ directive.controller('demoCtrl', ['$scope', '$timeout', '$http', function ($scop
         }
         last = 1;
     }
-    $scope.testRepeat1 = function () {
+    $scope.testRepeat1 = function() {
         if (last) {
             ii = ii - 3 * c;
         }

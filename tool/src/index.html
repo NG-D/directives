@@ -28,7 +28,7 @@
                 <span>My Github</span>
             </a>
         </div>
-        <div ng-repeat="n in directives track by $index" ng-click="select($index)" ng-class="{cur:$index==page}">
+        <div ng-repeat="n in directives track by $index" ng-click="select($index,'.R')" ng-class="{cur:$index==page}">
             <span ng-bind="n.name"></span>
         </div>
     </div>
@@ -121,7 +121,7 @@
     </div>
     <!-- build:js demo/demo.min.js -->
     <!-- lib -->
-    <!-- // <script src="libs/jquery/dist/jquery.min.js"></script> -->
+    <script src="libs/jquery/dist/jquery.min.js"></script>
     <script src="libs/angular/angular.min.js"></script>
     <!-- js -->
     <script src="demo/demo.js"></script>

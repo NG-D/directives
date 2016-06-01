@@ -14,7 +14,7 @@
     <meta name="keywords" content="demo" />
     <meta name="description" content="demo" />
     <!-- build:css demo/demo.min.css -->
-    <link rel="stylesheet" href="demo/demo.css" />
+    <link rel="stylesheet" href="demo/noJq.css" />
     <link rel="stylesheet" href="ripple/ripple.css" />
     <link rel="stylesheet" href="repeat/repeat.css" />
     <!-- endbuild -->
@@ -28,12 +28,12 @@
                 <span>My Github</span>
             </a>
         </div>
-        <div ng-repeat="n in directives track by $index" ng-click="select($index,'.R')" ng-class="{cur:$index==page}">
+        <div ng-repeat="n in directives track by $index" ng-click="select($index)" ng-class="{cur:$index==page}">
             <span ng-bind="n.name"></span>
         </div>
     </div>
-    <div class="R ng-cloak" id="r">
-        <section id="sec-0">
+    <div class="R" id="r">
+        <section ng-show="page==0">
             <input type="text" ng-model="d.user" placeholder="请输入用户名" />
             <br>
             <input type="password" ng-model="d.pwd" placeholder="请输入密码" />
@@ -41,10 +41,10 @@
             <input type="password" ng-model="d.repwd" placeholder="请重新输入密码" />
             <br>
         </section>
-        <section id="sec-1">
+        <section ng-show="page==1">
             <l-slide-img imgs="imgs" c="slideConfig"></l-slide-img>
         </section>
-        <section id="sec-2">
+        <section ng-show="page==2">
             <div class="l-drag b-g" c="dragConfig">
                 <div class="dialog-head">
                     <div class="f-l">这里是标题</div>
@@ -72,7 +72,7 @@
                 <div>你好！</div>
             </l-drag>
         </section>
-        <section id="sec-3">
+        <section ng-show="page==3">
             <div>
                 <h1>使用本插件时，img标签要使用ng-src才生效！</h1>
             </div>
@@ -89,7 +89,7 @@
                 <img src="{{lazeImg[0]}}" c="" alt="{{a}}">
             </div>
         </section>
-        <section id="sec-4" class="lazy-img">
+        <section ng-show="page==4" class="lazy-img">
             <p>lazyImg</p>
             <l-lazy-img src="i" class="img" c="lazeImgConfig" ng-repeat="i in lazeImg"></l-lazy-img>
             <l-lazy-img src="lazeImg[0]" c="lazeImgConfig" class="img"></l-lazy-img>
@@ -99,7 +99,7 @@
             <l-lazy-img src="lazeImg[1]" c="lazeImgConfig" class="img"></l-lazy-img>
             <l-lazy-img src="lazeImg[2]" c="lazeImgConfig" class="img"></l-lazy-img>
         </section>
-        <section id="sec-5">
+        <section ng-show="page==5">
             <div class="ripple-div">
                 <button l-ripple class="b-blue">BUTTON attr</button>
             </div>
@@ -110,18 +110,18 @@
                 <div class="button b-black l-ripple">BUTTON class</div>
             </div>
         </section>
-        <section id="sec-6">
+        <section ng-show="page==6">
             <button ng-click="testRepeat()">加{{rData.length}}</button>
             <button ng-click="testRepeat1()">减{{rData.length}}</button>
             <div ng-repeat="a in rData track by $index">{{a.time}}+{{a.name}}</div>
         </section>
-        <section id="sec-7"></section>
-        <section id="sec-8"></section>
-        <section id="sec-9"></section>
+        <section ng-show="page==7"></section>
+        <section ng-show="page==8"></section>
+        <section ng-show="page==9"></section>
     </div>
     <!-- build:js demo/demo.min.js -->
     <!-- lib -->
-    <script src="libs/jquery/dist/jquery.min.js"></script>
+    <!-- // <script src="libs/jquery/dist/jquery.min.js"></script> -->
     <script src="libs/angular/angular.min.js"></script>
     <!-- js -->
     <script src="demo/demo.js"></script>
