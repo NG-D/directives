@@ -38,6 +38,9 @@ directive.directive('lRipple', function() {
                 ripple.style.top = top + 'px';
                 ripple.style.left = left + 'px';
                 ripple.classList.add('show');
+                setTimeout(function() {
+                    ripple.classList.remove('show');
+                }, 2000);
             });
         }
     };
