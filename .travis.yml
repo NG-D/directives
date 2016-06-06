@@ -8,7 +8,7 @@ cache:
 before_install:
   - cd tool
   - npm install -g gulp
-#  - git clone https://github.com/LinJieLinLin/myGulp.git gulp
+  - git clone https://github.com/LinJieLinLin/myGulp.git gulp
   - cd gulp
   - git pull
 install:
