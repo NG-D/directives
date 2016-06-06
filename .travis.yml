@@ -8,6 +8,7 @@ cache:
 before_install:
   - cd tool
   - npm install -g gulp
+  - ls
   - git clone https://github.com/LinJieLinLin/myGulp.git gulp
   - cd gulp
   - git pull
@@ -30,5 +31,5 @@ branches:
     - master
 env:
  global:
-  - secure: "gtTjsLor7/6tnMpuM0e4g8Om7A8KvZSd9uX1c9Ey4CyCpILEWpDyP/pEBM4e4gmt6ADierzWiDNlK76Vkprioql+RxVrRohu3VpEwDHWfNiRNY662ysLPqS8DVbWwJLsrPegdgyXd9WWkMaf49kwMRSWSpKh8dA0T6ngQqGaXKmJnlf6SQOZCZwucf33P+K2RqklAytnBDrVFUyKGmsk/qRbDu4mSVPlfIfBZktdPFm4tbyStTFw8PKixUD9b33SSbR4SeH5zYRCXzDIldTPL+fW2+yTWEM+g+WqTMZgRH/jJBsfGhjtjTW1Kb/c7hphpF/GoRl444Tm68LoGx7sTEhs7tCOAftEYShci5cMhRxxnuLiDJnzFUT9v4QIfaHyIHpTB+WTWCcFeaTmRcggoDaQbegkUReaUosw5V36YopdEVSMG0VL0V6WkQRaRfP6NrDBK6G5HjOTzc6qXUuxTfB6vYeT9sef0E3zEIHnVQBRl+uyeraRk5hBMeVCmjs1SoSFysdwzNhHCagM7PHWQSsWfwGZCa2X1e569SXxONF7WBF0C3iqCYHsWNa1LBC0YoESgMUp56yf/FiYauMoBa7isDs61jVBF2/bfOdfgRDrccjoLdHwuulb/3fRLs3PnqorAG0/Hmr/PazFwyw2IDlp7Psm9FbtumFaUJzg6OU="
   - GH_URL: "github.com/NG-D/directives.git"
+  - secure: "sxoBD3YVje59Tubvv2qHa0ZFs0pICeiq3dncct8XqcRS4E9iRZC0CKfC2uG59AmcuEjGbwgIekw7GaFkJGLFjlhggBU3EIqS/iGRlE7Z2cB6udlx4CE7vNtxMaAtJ0pXgkTH4wqD2QIClXHLdOLVLKhcI/sVzfMBLB/zg1lLsNbhqU2gKNHux3BgLSVAgqdUpnYmhJO4WSobgZprswrc1eyVZVAbakzDoHGPlTMntzmkLwMrLP8c35YU2Pea5E2ohVYorLgDmYRfNjJopyuV0WYuacXURCkK9EX29gOZg4Ih1qIXPBqDIIQjTO7ypQFra6g0q4MGFA1Tbc04hdcBwFcJPCUqPKF+ERbCxponsGvO6MpGCoUBkxIWxKf/QRpfSNh3SWavGRAzWfXqsscCeN9g0+ODp7V6wfDoz1gGeBgzMyM0JUL58tH7I0lBp1ryk7UjU2z7NTfoe+5PzF+TQVwQtMOiFNcwVmtXMLc2JDJee7pGz2Aw+VgsT+wsXL3Fg/jerW+z+r/dk2LsVL6qqP51wuaGyncOeOy/cwWwOgipZgWyunweeGJdpXFeBumlp8SgUSzbWIuKn8r2QqBIC4z+7gPHTFPNC7Ted+nU9lQW2Kbwt8zJsfxNNtXc1uDgQUUYySwGWIyQ43RF9+MAN/eOgnyGMj0Hqv/weyEAtgc="
