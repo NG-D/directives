@@ -64,6 +64,7 @@ directive.factory('lazy', ['$timeout', '$window', function($timeout, $window) {
          * 监听事件
          * @param  {Object} id         监听滚动元素ID
          * @param  {Object} node       DOM节点
+         * @param  {Object} type       默认lazy懒加载模式（只监听一次）,normal监听顶部元素,
          * @param  {Object} callback   事件的回调函数
          */
         listener: function(args) {
@@ -86,9 +87,17 @@ directive.factory('lazy', ['$timeout', '$window', function($timeout, $window) {
                 var wh = wt + w.offsetHeight;
                 var et = e.offsetTop;
                 var eh = et + e.offsetHeight;
+                //判断是否在可视范围内
                 var tf = et >= wt && et <= wh;
+                //判断是否在顶部
                 var bf = et <= wt && eh >= wt;
-                if (tf || bf) {
+                if (args.type === 'normal') {
+                    if (bf) {
+                        if (typeof args.callback === 'function') {
+                            args.callback();
+                        }
+                    }
+                } else if (tf || bf) {
                     lock = !lock;
                     if (typeof args.callback === 'function') {
                         args.callback();

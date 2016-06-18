@@ -28,7 +28,7 @@
                 <span>My Github</span>
             </a>
         </div>
-        <div ng-repeat="n in directives track by $index" ng-click="select($index,'.R')" ng-class="{cur:$index==page}">
+        <div ng-repeat="n in directives track by $index" ng-click="select($index,'#r')" ng-class="{cur:$index==page}">
             <span ng-bind="n.name"></span>
         </div>
     </div>
@@ -81,7 +81,7 @@
             <br>
             <l-img c="{img:'sb',default:'demo/1.jpg',divStyle:{width:'160px',height:'90px'},title:'这是一张默认图'}" alt="'默认图'"></l-img>
             <br>
-            <l-img c="{img:lazeImg[0],default:'demo/1.jpg',divStyle:{width:'160px',height:'90px'},title:'二'}" ng-src="" alt=""></l-img>
+            <l-img c="{img:'https://linjielinlin.github.io/static/img/6.jpg',default:'demo/1.jpg',divStyle:{width:'160px',height:'90px'},title:'二'}" ng-src="" alt=""></l-img>
             <br>
             <l-img c="{img:lazeImg[0],default:'demo/1.jpg',divStyle:{width:'160px',height:'90px'},title:'三'}" alt=""></l-img>
             <b>img little</b>
