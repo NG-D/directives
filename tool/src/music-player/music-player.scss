@@ -1,0 +1,58 @@
+@import '../demo/_myMixin';
+.mc-player {
+    @include iCB();
+    height: 100px;
+}
+
+.mc-header {
+    float: left;
+    height: 100%;
+    .face-img {
+        width: 100px;
+        height: 100%;
+        background-image: url('/demo/music-face.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+.mc-body {
+    float: left;
+    width: 100px;
+    height: 100%;
+    background-color: mediumpurple;
+    color: #fff;
+    .title {
+        padding: 8px 0;
+        width: 100%;
+        text-align: center;
+    }
+    .ctrl-a {
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+        line-height: 35px;
+    }
+    .ctrl-b {
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+        line-height: 35px;
+    }
+    .play {
+        width: 50%;
+        display: inline-block;
+    }
+    .close {
+        display: none;
+        position: absolute;
+        top: 2px;
+        right: 2px;
+    }
+    &:hover {
+        .close {
+            display: block;
+            font-size: 16px;
+        }
+    }
+}

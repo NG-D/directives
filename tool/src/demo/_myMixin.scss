@@ -157,6 +157,13 @@
     .ng-cloak {
         display: none;
     }
+    .text-of {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: normal;
+        white-space: nowrap;
+        vertical-align: middle;
+    }
 }
 
 
@@ -177,6 +184,8 @@
     }
     @else {
         &:after {
+            content: "";
+            display: block;
             clear: both;
         }
     }

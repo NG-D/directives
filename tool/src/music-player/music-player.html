@@ -1,0 +1,39 @@
+<div>
+    <audio controls>
+        <source src="/music/纯/莫失莫忘.mp3" type="audio/mpeg">
+        <span>你的浏览器不支持</span>
+    </audio>
+    <div class="mc-player">
+        <div class="mc-header">
+            <div class="face-img">
+                <img ng-src="" alt="">
+            </div>
+        </div>
+        <div class="mc-body p-r">
+            <div class="title text-of">
+                莫失莫忘
+            </div>
+            <div class="ctrl">
+                <div class="ctrl-a">
+                    <i class="fa fa-step-backward" aria-hidden="true"></i>
+                    <div class="play" ng-click="play()">
+                        <i class="fa fa-play" aria-hidden="true" ng-hide="m.play"></i>
+                        <i class="fa fa-pause" aria-hidden="true" ng-show="m.play"></i>
+                    </div>
+                    <i class="fa fa-step-forward" aria-hidden="true"></i>
+                </div>
+                <div class="ctrl-b">
+                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                    <div class="play" ng-click="play()">
+                        <i class="fa fa-volume-off" aria-hidden="true" ng-show="m.voice===0"></i>
+                        <i class="fa fa-volume-up" aria-hidden="true" ng-show="m.voice>0"></i>
+                    </div>
+                    <i class="fa fa-list-ul" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="close">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</div>

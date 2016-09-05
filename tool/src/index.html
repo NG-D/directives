@@ -17,7 +17,9 @@
     <link rel="stylesheet" href="demo/demo.css" />
     <link rel="stylesheet" href="ripple/ripple.css" />
     <link rel="stylesheet" href="repeat/repeat.css" />
+    <link rel="stylesheet" href="music-player/music-player.css" />
     <!-- endbuild -->
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body ng-controller="demoCtrl">
@@ -42,6 +44,8 @@
             <br>
         </section>
         <section id="sec-1">
+            <i class="fa fa-stop" aria-hidden="true"></i>
+            <l-music></l-music>
             <l-slide-img imgs="imgs" c="slideConfig"></l-slide-img>
         </section>
         <section id="sec-2">
@@ -133,6 +137,7 @@
     <script src="lazy/lazy-img.js"></script>
     <script src="ripple/ripple.js"></script>
     <script src="repeat/repeat.js"></script>
+    <script src="music-player/music-player.js"></script>
     <!-- endbuild -->
 </body>
 

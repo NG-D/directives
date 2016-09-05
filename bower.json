@@ -1,29 +1,30 @@
 {
-  "name": "myDirective",
-  "version": "0.0.1",
-  "authors": [
-    "linj"
-  ],
-  "license": "NO",
-  "description": "",
-  "main": "demo.html",
-  "moduleType": [],
-  "homepage": "index.html",
-  "ignore": [
-    "**/.*",
-    "*.cmd",
-    "test",
-    "tool",
-    "node_modules",
-    "libs",
-    "bower_components"
-  ],
-  "dependencies": {
-    "angular": "1.3.5",
-    "angular-mocks": "1.3.5",
-    "jquery": "~2.2.1"
-  },
-  "scripts": {
-    "postinstall": "gulp build"
-  }
+    "name": "myDirective",
+    "version": "0.0.1",
+    "authors": [
+        "linj"
+    ],
+    "license": "NO",
+    "description": "",
+    "main": "demo.html",
+    "moduleType": [],
+    "homepage": "index.html",
+    "ignore": [
+        "**/.*",
+        "*.cmd",
+        "test",
+        "tool",
+        "node_modules",
+        "libs",
+        "bower_components"
+    ],
+    "dependencies": {
+        "angular": "1.3.5",
+        "angular-mocks": "1.3.5",
+        "jquery": "*",
+        "animate.css": "~3.5.2"
+    },
+    "scripts": {
+        "postinstall": "gulp build"
+    }
 }
