@@ -71,10 +71,25 @@ directive.controller('demoCtrl', function($scope, $timeout, $http, lazy) {
         }, {
             name: 'NULL',
         }, ];
+        try {
+            $.fn.extend({
+                animateCss: function(animationName) {
+                    var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                    var a = +new Date();
+                    this.addClass('animated ' + animationName).one(animationEnd, function() {
+                        var b = +new Date();
+                        console.log(b-a)
+                        $(this).removeClass('animated ' + animationName);
+                    });
+                }
+            });
+            $('.L').animateCss('zoomIn');
+            $('.R').animateCss('zoomIn');
+        } catch (e) { console.log(e); }
         //slide
         $scope.slideConfig = {
             time: 1.5,
-            stayTime: 2,
+            stayTime: 3,
             imgStyle: { width: '100%', height: '100%' },
             class: '',
             style: {
@@ -102,7 +117,7 @@ directive.controller('demoCtrl', function($scope, $timeout, $http, lazy) {
         ];
         if ($scope.page) {
             $timeout(function() {
-            $scope.select($scope.page, '#r');
+                $scope.select($scope.page, '#r');
                 $scope.listenerScroll();
             }, 1000);
         } else {

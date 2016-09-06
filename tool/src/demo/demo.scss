@@ -82,18 +82,17 @@ button,
     font-size: 18px;
     >div {
         &:hover {
-            box-shadow: -1px -1px 3px #FBB7B7;
-            background-color: #F9D5D5;
+            box-shadow: 0px 0px 3px #dde5fb;
+            background-color: #e6e6e6;
         }
         &:active {
-            background-color: #FBB7C0;
+            background-color: #e6e6e6;
         }
         border-bottom:1px solid #f6f6f6;
         cursor: pointer;
     }
     .cur {
-        background-color: #F9D5D5;
-        box-shadow: -1px -1px 3px #FBB7B7;
+        background-color: #e6e6e6;
     }
 }
 
@@ -112,7 +111,7 @@ button,
         background-color: #fff;
         border-radius: 0.2%;
         height: 100%;
-        padding: 1% 1%;
+        padding: 1% 2%;
         margin-bottom: 2%;
     }
 }

@@ -51,7 +51,7 @@ directive.directive('placeholder', function() {
                         pwd.on('focus', function() {
                             e.css('display', 'inline-block');
                             pwd.css('display', 'none');
-                            e.focus();
+                            e.on('focus', function() {});
                         });
                     }
                     var isFocus = false;

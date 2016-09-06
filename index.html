@@ -18,11 +18,12 @@
     <link rel="stylesheet" href="ripple/ripple.css" />
     <link rel="stylesheet" href="repeat/repeat.css" />
     <link rel="stylesheet" href="music-player/music-player.css" />
+    <link rel="stylesheet" href="libs/animate.css/animate.css" />
     <!-- endbuild -->
     <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
-<body ng-controller="demoCtrl">
+<body ng-controller="demoCtrl" class="ng-cloak">
     <div class="L">
         <div>
             <a href="https://github.com/NG-D/directives" target="_blank">
@@ -44,7 +45,6 @@
             <br>
         </section>
         <section id="sec-1">
-            <i class="fa fa-stop" aria-hidden="true"></i>
             <l-music></l-music>
             <l-slide-img imgs="imgs" c="slideConfig"></l-slide-img>
         </section>
