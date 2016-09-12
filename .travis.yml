@@ -6,6 +6,7 @@ cache:
     - node_modules
 # S: Build Lifecycle
 before_install:
+  - npm install -g bower
   - bower i
   - cd tool
   - npm install -g gulp
