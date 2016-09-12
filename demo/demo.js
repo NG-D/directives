@@ -1,6 +1,5 @@
 var directive = angular.module('demo', []);
 directive.controller('demoCtrl', ['$scope', '$timeout', '$http', 'lazy', function($scope, $timeout, $http, lazy) {
-    let a=123;
     var init = function() {
         //page
         $scope.page = +localStorage.page || 0;
