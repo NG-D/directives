@@ -1,5 +1,6 @@
 var directive = angular.module('demo', []);
 directive.controller('demoCtrl', ['$scope', '$timeout', '$http', 'lazy', function($scope, $timeout, $http, lazy) {
+    let a=123;
     var init = function() {
         //page
         $scope.page = +localStorage.page || 0;
@@ -78,7 +79,6 @@ directive.controller('demoCtrl', ['$scope', '$timeout', '$http', 'lazy', functio
                     var a = +new Date();
                     this.addClass('animated ' + animationName).one(animationEnd, function() {
                         var b = +new Date();
-                        console.log(b-a)
                         $(this).removeClass('animated ' + animationName);
                     });
                 }
@@ -159,7 +159,7 @@ directive.controller('demoCtrl', ['$scope', '$timeout', '$http', 'lazy', functio
             });
         }
     };
-    init();
+
     //todo
     //todo
 
@@ -203,4 +203,5 @@ directive.controller('demoCtrl', ['$scope', '$timeout', '$http', 'lazy', functio
         }
         last = 0;
     };
+    init();
 }]);

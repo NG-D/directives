@@ -1,6 +1,5 @@
 var directive = angular.module('demo', []);
 directive.controller('demoCtrl', function($scope, $timeout, $http, lazy) {
-    let a=123;
     var init = function() {
         //page
         $scope.page = +localStorage.page || 0;
@@ -72,20 +71,6 @@ directive.controller('demoCtrl', function($scope, $timeout, $http, lazy) {
         }, {
             name: 'NULL',
         }, ];
-        try {
-            $.fn.extend({
-                animateCss: function(animationName) {
-                    var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-                    var a = +new Date();
-                    this.addClass('animated ' + animationName).one(animationEnd, function() {
-                        var b = +new Date();
-                        $(this).removeClass('animated ' + animationName);
-                    });
-                }
-            });
-            $('.L').animateCss('zoomIn');
-            $('.R').animateCss('zoomIn');
-        } catch (e) { console.log(e); }
         //slide
         $scope.slideConfig = {
             time: 1.5,
@@ -129,37 +114,22 @@ directive.controller('demoCtrl', function($scope, $timeout, $http, lazy) {
     $scope.select = function(argIndex, argTarget) {
         $scope.page = argIndex;
         localStorage.page = argIndex;
-        if (argTarget) {
-            var temTop = $(argTarget).scrollTop() + $('#sec-' + argIndex).offset().top;
-            if ($(argTarget)[0].scrollHeight - temTop < $(argTarget).height()) {
-                var temH = $(argTarget).height() - $(argTarget)[0].scrollHeight + temTop;
-                $(argTarget).append('<div style="width:100%;height:' + temH + 'px"></div>');
-            }
-            if (temTop > 1) {
-                localStorage.temTop = temTop;
-                $(argTarget).stop().animate({ scrollTop: temTop }, 'slow');
-            }
-        }
+        // if (argTarget) {
+        //     var temTop = $(argTarget).scrollTop() + $('#sec-' + argIndex).offset().top;
+        //     if ($(argTarget)[0].scrollHeight - temTop < $(argTarget).height()) {
+        //         var temH = $(argTarget).height() - $(argTarget)[0].scrollHeight + temTop;
+        //         $(argTarget).append('<div style="width:100%;height:' + temH + 'px"></div>');
+        //     }
+        //     if (temTop > 1) {
+        //         localStorage.temTop = temTop;
+        //         $(argTarget).stop().animate({ scrollTop: temTop }, 'slow');
+        //     }
+        // }
     };
     //滚动监听
     $scope.listenerScroll = function() {
-        if ($scope.directives) {
-            angular.forEach($scope.directives, function(v, k) {
-                if ($('#sec-' + k).length) {
-                    var data = {
-                        id: 'r',
-                        node: $('#sec-' + k)[0],
-                        type: 'normal',
-                        callback: function() {
-                            $scope.page = k;
-                        }
-                    };
-                    lazy.listener(data);
-                }
-            });
-        }
     };
-
+    init();
     //todo
     //todo
 
@@ -203,5 +173,4 @@ directive.controller('demoCtrl', function($scope, $timeout, $http, lazy) {
         }
         last = 0;
     };
-    init();
 });

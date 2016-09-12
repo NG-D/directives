@@ -19,8 +19,8 @@
         "bower_components"
     ],
     "dependencies": {
-        "angular": "1.3.5",
-        "angular-mocks": "1.3.5",
+        "angular": "1.5.*",
+        "angular-mocks": "1.5.*",
         "jquery": "*",
         "animate.css": "~3.5.2"
     },
