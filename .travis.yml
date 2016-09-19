@@ -3,11 +3,13 @@ node_js: stable
 # Travis-CI Caching
 cache:
   directories:
-    - node_modules
+    - libs
+    - tool/gulp/node_modules
 # S: Build Lifecycle
 before_install:
   - npm install -g bower
   - bower i
+  - ls
   - cd tool
   - npm install -g gulp
   - ls
