@@ -15,7 +15,7 @@ before_install:
   - cd gulp
   - git pull 
   - cd ../
-  - cd scr
+  - cd src
   - npm i
 install:
   - npm install
