@@ -4,7 +4,7 @@ node_js: stable
 cache:
   directories:
     - libs
-    - tool/gulp
+    # - tool/gulp/node_modules
 # S: Build Lifecycle
 before_install:
   - npm install -g bower
@@ -13,7 +13,7 @@ before_install:
   - cd tool
   - npm install -g gulp
   - ls
-  # - git clone https://github.com/LinJieLinLin/myGulp.git gulp
+  - git clone https://github.com/LinJieLinLin/myGulp.git gulp
   - cd src
   - npm i
   - cd ../
