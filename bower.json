@@ -1,5 +1,5 @@
 {
-    "name": "myDirective",
+    "name": "my-directive",
     "version": "0.0.1",
     "authors": [
         "linj"
@@ -21,7 +21,7 @@
     "dependencies": {
         "angular": "1.5.*",
         "angular-mocks": "1.5.*",
-        "jquery": "^2.*",
+        "jQuery": "^2.*",
         "animate.css": "~3.5.2"
     },
     "scripts": {
