@@ -3,7 +3,7 @@ node_js: stable
 # Travis-CI Caching
 cache:
   directories:
-    - libs
+    # - libs
     # - tool/gulp/node_modules
 # S: Build Lifecycle
 before_install:
