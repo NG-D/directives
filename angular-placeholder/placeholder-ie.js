@@ -1,32 +1,34 @@
+'use strict';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
 try {
-    if (typeof directive !== 'object') {
+    if ((typeof directive === 'undefined' ? 'undefined' : _typeof(directive)) !== 'object') {
         var directive = angular.module('directive', []);
     }
 } catch (e) {
     var directive = angular.module('directive', []);
 }
-directive.directive('placeholder', function() {
+directive.directive('placeholder', function () {
     return {
         restrict: 'A',
         require: '?ngModel',
-        link: function(scope, e, attr, ctrl) {
+        link: function link(scope, e, attr, ctrl) {
             try {
                 var str = '<style>.placeholder-style{color: gray;};</style>';
-                if (document.getElementsByClassName('placeholder-style').length === 0) {
-                    angular.element(document).find('head').append(str);
-                }
-                var isIE = function(min, max) {
+                var isIE = function isIE(min, max) {
                     var navAgent = window.navigator.userAgent.toLowerCase(),
                         flag;
                     if (navAgent.indexOf('msie') !== -1) {
                         var IE = navAgent.match(/msie\s([0-9]*)/);
-                        flag = (arguments.length === 0) ? IE[1] :
-                            (arguments.length === 1) ? (parseInt(IE[1]) === min) :
-                            (IE[1] >= min && IE[1] <= max) ? IE[1] : false;
+                        flag = arguments.length === 0 ? IE[1] : arguments.length === 1 ? parseInt(IE[1]) === min : IE[1] >= min && IE[1] <= max ? IE[1] : false;
                     }
                     return flag;
                 };
                 if (isIE(8, 9)) {
+                    if (document.getElementsByClassName('placeholder-style').length === 0) {
+                        angular.element(document).find('head').append(str);
+                    }
                     if (!ctrl.$modelValue && ctrl.$modelValue !== false && ctrl.$modelValue !== 0) {
                         e.val(attr.placeholder);
                         e.addClass('placeholder-style');
@@ -40,22 +42,18 @@ directive.directive('placeholder', function() {
                         var temId = new Date().getTime();
                         var s = attr.style || '';
                         var c = attr.class || '';
-                        e.after('<input id="' + temId +
-                            '" type="text" value="' + attr.placeholder +
-                            '" autocomplete="off" style="' + s +
-                            '" class="' + c +
-                            ' placeholder-style" />');
+                        e.after('<input id="' + temId + '" type="text" value="' + attr.placeholder + '" autocomplete="off" style="' + s + '" class="' + c + ' placeholder-style" />');
                         var pwd = e.next();
                         pwd.css('display', 'inline-block');
                         e.css('display', 'none');
-                        pwd.on('focus', function() {
+                        pwd.on('focus', function () {
                             e.css('display', 'inline-block');
                             pwd.css('display', 'none');
-                            e.on('focus', function() {});
+                            e.on('focus', function () {});
                         });
                     }
                     var isFocus = false;
-                    e.on('focus', function() {
+                    e.on('focus', function () {
                         isFocus = true;
                         if (attr.type === 'password') {
                             if (!ctrl.$modelValue) {
@@ -68,7 +66,7 @@ directive.directive('placeholder', function() {
                             }
                         }
                     });
-                    e.on('blur', function() {
+                    e.on('blur', function () {
                         isFocus = false;
                         if (attr.type === 'password') {
                             if (e.val() === '') {
@@ -82,9 +80,9 @@ directive.directive('placeholder', function() {
                             }
                         }
                     });
-                    scope.$watch(function() {
+                    scope.$watch(function () {
                         return ctrl.$modelValue;
-                    }, function(v) {
+                    }, function (v) {
                         if (v) {
                             e.removeClass('placeholder-style');
                         } else if (isFocus === false) {

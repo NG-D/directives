@@ -20,6 +20,10 @@ directive.directive('lDrag', function($document) {
             return {
                 pre: function(scope, element, attr) {
                     try {
+                        //cssStart
+ var cssTpl='<style type="text/css" id="tpl-drag"></style>';
+if (!$("#tpl-drag").length) {$("body").prepend(cssTpl);}
+//cssEnd
                         var startX = 0,
                             startY = 0,
                             x = 0,

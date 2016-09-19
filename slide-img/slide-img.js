@@ -1,11 +1,15 @@
+'use strict';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
 try {
-    if (typeof directive !== 'object') {
+    if ((typeof directive === 'undefined' ? 'undefined' : _typeof(directive)) !== 'object') {
         var directive = angular.module('directive', []);
     }
 } catch (e) {
     var directive = angular.module('directive', []);
 }
-directive.directive('lSlideImg', function() {
+directive.directive('lSlideImg', function () {
     return {
         restrict: 'E',
         replace: true,
@@ -15,7 +19,13 @@ directive.directive('lSlideImg', function() {
             imgs: '=',
             c: '='
         },
-        controller: ['$scope', '$element', '$rootElement', '$timeout', '$interval', function($scope, $element, $rootElement, $timeout, $interval) {
+        controller: ['$scope', '$element', '$rootElement', '$timeout', '$interval', function ($scope, $element, $rootElement, $timeout, $interval) {
+            //cssStart
+            var cssTpl = '<style type="text/css" id="tpl-slide-img">.slide-img,.slide-img ul{list-style:none;margin:0;padding:0}.slide-img .next:focus,.slide-img .prev:focus{outline:0}.slide-img .slide-l-0,.slide-img .slide-l-1,.slide-img .slide-r-0,.slide-img .slide-r-1{-webkit-animation-duration:1.5s;-moz-animation-duration:1.5s;-o-animation-duration:1.5s;animation-duration:1.5s;-webkit-animation-fill-mode:forwards;-moz-animation-fill-mode:forwards;-o-animation-fill-mode:forwards;animation-fill-mode:forwards}.slide-img{position:relative;width:640px;height:360px;border-radius:5px;overflow:hidden;border:1px solid #f5f5f5}.slide-img:hover .prev{left:5%;-moz-transition:left .5s ease-in;-o-transition:left .5s ease-in;transition:left .5s ease-in}.slide-img:hover .next{right:5%;-moz-transition:right .5s ease-in;-o-transition:right .5s ease-in;transition:right .5s ease-in}.slide-img ul{height:100%}.slide-img li{position:absolute;width:100%;left:-100%;top:0;margin:auto}.slide-img .next,.slide-img .prev{top:50%;-webkit-transform:translate(0,-50%);-moz-transform:translate(0,-50%);-ms-transform:translate(0,-50%);-o-transform:translate(0,-50%);transform:translate(0,-50%)}.slide-img li img{max-width:100%;max-height:100%}.slide-img>button{padding:0;margin:0;border:none;position:absolute;z-index:1000;font-size:30px;background-color:#dcd4d4;width:40px;height:40px;line-height:40px;border-radius:20px;text-align:center}.slide-img>button:hover{background-color:#d1c6c6}.slide-img>button:active{background-color:#ccc0c0}.slide-img .prev{left:-20%;-moz-transition:left .5s ease-out;-o-transition:left .5s ease-out;transition:left .5s ease-out}.slide-img .next{right:-20%;-moz-transition:right .5s ease-out;-o-transition:right .5s ease-out;transition:right .5s ease-out}.slide-img .slide-l-0{-webkit-animation-name:slide-l;-moz-animation-name:slide-l;-o-animation-name:slide-l;animation-name:slide-l}.slide-img .slide-l-1{-webkit-animation-name:slide-r;-moz-animation-name:slide-r;-o-animation-name:slide-r;animation-name:slide-r}.slide-img .slide-r-0{-webkit-animation-name:slide-l1;-moz-animation-name:slide-l1;-o-animation-name:slide-l1;animation-name:slide-l1}.slide-img .slide-r-1{-webkit-animation-name:slide-r1;-moz-animation-name:slide-r1;-o-animation-name:slide-r1;animation-name:slide-r1}@-webkit-keyframes slide-l{0%{left:0}100%{left:-100%}}@-moz-keyframes slide-l{0%{left:0}100%{left:-100%}}@-o-keyframes slide-l{0%{left:0}100%{left:-100%}}@keyframes slide-l{0%{left:0}100%{left:-100%}}@-webkit-keyframes slide-r{0%{left:100%}100%{left:0}}@-moz-keyframes slide-r{0%{left:100%}100%{left:0}}@-o-keyframes slide-r{0%{left:100%}100%{left:0}}@keyframes slide-r{0%{left:100%}100%{left:0}}@-webkit-keyframes slide-l1{0%{left:0}100%{left:100%}}@-moz-keyframes slide-l1{0%{left:0}100%{left:100%}}@-o-keyframes slide-l1{0%{left:0}100%{left:100%}}@keyframes slide-l1{0%{left:0}100%{left:100%}}@-webkit-keyframes slide-r1{0%{left:-100%}100%{left:0}}@-moz-keyframes slide-r1{0%{left:-100%}100%{left:0}}@-o-keyframes slide-r1{0%{left:-100%}100%{left:0}}@keyframes slide-r1{0%{left:-100%}100%{left:0}}</style>';
+            if (!$("#tpl-slide-img").length) {
+                $("body").prepend(cssTpl);
+            }
+            //cssEnd
             /*
             S=$scope
             c = 传入来的config
@@ -26,7 +36,7 @@ directive.directive('lSlideImg', function() {
                 console.log('图片数据有误！');
                 return;
             }
-            S.init = function() {
+            S.init = function () {
                 if (!S.c) {
                     S.c = {};
                 }
@@ -46,10 +56,12 @@ directive.directive('lSlideImg', function() {
             };
             S.init();
 
-            S.prev = function() {
+            S.prev = function () {
                 if (!$scope.nextClick) {
                     $scope.nextClick = true;
-                    $timeout(function() { $scope.nextClick = false; }, S.c.time * 1000);
+                    $timeout(function () {
+                        $scope.nextClick = false;
+                    }, S.c.time * 1000);
                     if (S.d.slideLeft) {
                         S.d.slideLeft = false;
                         S.slideLeft();
@@ -58,10 +70,12 @@ directive.directive('lSlideImg', function() {
                     }
                 }
             };
-            S.next = function() {
+            S.next = function () {
                 if (!$scope.nextClick) {
                     $scope.nextClick = true;
-                    $timeout(function() { $scope.nextClick = false; }, S.c.time * 1000);
+                    $timeout(function () {
+                        $scope.nextClick = false;
+                    }, S.c.time * 1000);
                     if (!S.d.slideLeft) {
                         S.d.slideLeft = true;
                         S.slideRight();
@@ -70,7 +84,7 @@ directive.directive('lSlideImg', function() {
                     }
                 }
             };
-            S.slideRight = function() {
+            S.slideRight = function () {
                 if (S.d.i === 0) {
                     S.d.i = S.d.len - 1;
                     return;
@@ -79,7 +93,7 @@ directive.directive('lSlideImg', function() {
                     return;
                 }
             };
-            S.slideLeft = function() {
+            S.slideLeft = function () {
                 if (S.d.i === S.d.len - 1) {
                     S.d.i = 0;
                     return;
@@ -88,13 +102,13 @@ directive.directive('lSlideImg', function() {
                     return;
                 }
             };
-            S.autoPlay = function() {
-                S.stop = $interval(function() {
+            S.autoPlay = function () {
+                S.stop = $interval(function () {
                     S.next();
                 }, S.c.stayTime * 1000);
             };
             //获取动画class
-            S.getClass = function(argIndex) {
+            S.getClass = function (argIndex) {
                 var a = 0;
                 var b = 1;
                 var c = '';
@@ -124,7 +138,7 @@ directive.directive('lSlideImg', function() {
                 }
                 return c;
             };
-            S.play = function(argType) {
+            S.play = function (argType) {
                 if (!argType) {
                     S.autoPlay();
                 } else {

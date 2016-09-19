@@ -16,6 +16,10 @@ directive.directive('lLazyImg', function($document) {
             c: "=",
         },
         controller: function($scope, $element, $attrs, lazy) {
+            //cssStart
+ var cssTpl='<style type="text/css" id="tpl-lazy-img"></style>';
+if (!$("#tpl-lazy-img").length) {$("body").prepend(cssTpl);}
+//cssEnd
             if ($scope.c) {
                 angular.forEach($scope.c, function(value, key) {
                     $scope[key] = value;

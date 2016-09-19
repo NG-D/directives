@@ -12,9 +12,6 @@ directive.directive('placeholder', function() {
         link: function(scope, e, attr, ctrl) {
             try {
                 var str = '<style>.placeholder-style{color: gray;};</style>';
-                if (document.getElementsByClassName('placeholder-style').length === 0) {
-                    angular.element(document).find('head').append(str);
-                }
                 var isIE = function(min, max) {
                     var navAgent = window.navigator.userAgent.toLowerCase(),
                         flag;
@@ -27,6 +24,9 @@ directive.directive('placeholder', function() {
                     return flag;
                 };
                 if (isIE(8, 9)) {
+                    if (document.getElementsByClassName('placeholder-style').length === 0) {
+                        angular.element(document).find('head').append(str);
+                    }
                     if (!ctrl.$modelValue && ctrl.$modelValue !== false && ctrl.$modelValue !== 0) {
                         e.val(attr.placeholder);
                         e.addClass('placeholder-style');

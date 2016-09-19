@@ -14,6 +14,9 @@ before_install:
   - git clone https://github.com/LinJieLinLin/myGulp.git gulp
   - cd gulp
   - git pull 
+  - cd ../
+  - cd scr
+  - npm i
 install:
   - npm install
 script:

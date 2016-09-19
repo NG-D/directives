@@ -1,76 +1,78 @@
+'use strict';
+
 var directive = angular.module('demo', []);
-directive.controller('demoCtrl', ['$scope', '$timeout', '$http', 'lazy', function($scope, $timeout, $http, lazy) {
-    var init = function() {
+directive.controller('demoCtrl', ['$scope', '$timeout', '$http', 'lazy', function ($scope, $timeout, $http, lazy) {
+    var init = function init() {
         //page
         $scope.page = +localStorage.page || 0;
         $scope.timeoutImg = '我不是图片';
-        $timeout(function() {
+        $timeout(function () {
             $scope.timeoutImg = 'http://u.kuxiao.cn/aGuJtx==';
         }, 3000);
         //directive list
         $scope.directives = [{
-            name: 'placeholder',
+            name: 'placeholder'
         }, {
-            name: 'slide',
+            name: 'slide'
         }, {
-            name: 'drag',
+            name: 'drag'
         }, {
-            name: 'default img',
+            name: 'default img'
         }, {
-            name: 'lazyImg',
+            name: 'lazyImg'
         }, {
-            name: 'ripple',
+            name: 'ripple'
         }, {
-            name: 'repeat',
+            name: 'repeat'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
+            name: 'NULL'
         }, {
-            name: 'NULL',
-        }, ];
+            name: 'NULL'
+        }];
         //slide
         $scope.slideConfig = {
             time: 1.5,
@@ -79,7 +81,7 @@ directive.controller('demoCtrl', ['$scope', '$timeout', '$http', 'lazy', functio
             class: '',
             style: {
                 width: '640px',
-                height: '360px',
+                height: '360px'
             }
         };
         //drag
@@ -93,15 +95,11 @@ directive.controller('demoCtrl', ['$scope', '$timeout', '$http', 'lazy', functio
         $scope.lazeImgConfig = {
             id: 'r',
             // url: 'demo/1.png',
-            style: { height: '100%', width: '100%' },
+            style: { height: '100%', width: '100%' }
         };
-        $scope.lazeImg = [
-            'http://u.kuxiao.cn/I5I03A==',
-            'http://u.kuxiao.cn/diDQd1==',
-            'http://u.kuxiao.cn/aGuJtx==',
-        ];
+        $scope.lazeImg = ['http://u.kuxiao.cn/I5I03A==', 'http://u.kuxiao.cn/diDQd1==', 'http://u.kuxiao.cn/aGuJtx=='];
         if ($scope.page) {
-            $timeout(function() {
+            $timeout(function () {
                 $scope.select($scope.page, '#r');
                 $scope.listenerScroll();
             }, 1000);
@@ -111,7 +109,7 @@ directive.controller('demoCtrl', ['$scope', '$timeout', '$http', 'lazy', functio
         }
     };
     //切换TAB
-    $scope.select = function(argIndex, argTarget) {
+    $scope.select = function (argIndex, argTarget) {
         $scope.page = argIndex;
         localStorage.page = argIndex;
         // if (argTarget) {
@@ -127,8 +125,7 @@ directive.controller('demoCtrl', ['$scope', '$timeout', '$http', 'lazy', functio
         // }
     };
     //滚动监听
-    $scope.listenerScroll = function() {
-    };
+    $scope.listenerScroll = function () {};
     init();
     //todo
     //todo
@@ -143,7 +140,7 @@ directive.controller('demoCtrl', ['$scope', '$timeout', '$http', 'lazy', functio
     var ii = 0;
     var last = 1;
     var c = 200;
-    $scope.testRepeat = function() {
+    $scope.testRepeat = function () {
         if (!last) {
             ii = ii + 3 * c;
         }
@@ -158,7 +155,7 @@ directive.controller('demoCtrl', ['$scope', '$timeout', '$http', 'lazy', functio
         }
         last = 1;
     };
-    $scope.testRepeat1 = function() {
+    $scope.testRepeat1 = function () {
         if (last) {
             ii = ii - 3 * c;
         }

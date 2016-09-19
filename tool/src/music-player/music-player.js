@@ -15,6 +15,10 @@ directive.directive('lMusic', function() {
             c: "=",
         },
         controller: function($scope, $element, $attrs,$http) {
+            //cssStart
+ var cssTpl='<style type="text/css" id="tpl-music-player">@charset "UTF-8";.mc-body,.mc-header{float:left;height:100%}.mc-player{height:100px}.mc-player:after{content:"";display:block;clear:both}.mc-header .face-img{width:100px;height:100%;background-image:url(/demo/music-face.jpg);background-repeat:no-repeat;background-size:cover}.mc-body{width:100px;background-color:#9370db;color:#fff}.mc-body .title{padding:8px 0;width:100%;text-align:center}.mc-body .ctrl-a,.mc-body .ctrl-b{width:100%;text-align:center;font-size:18px;line-height:35px}.mc-body .play{width:50%;display:inline-block}.mc-body .close{display:none;position:absolute;top:2px;right:2px}.mc-body:hover .close{display:block;font-size:16px}</style>';
+if (!$("#tpl-music-player").length) {$("body").prepend(cssTpl);}
+//cssEnd
             window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.msAudioContext;
             if ($scope.c) {
                 angular.forEach($scope.c, function(value, key) {
