@@ -21,7 +21,7 @@
     "dependencies": {
         "angular": "1.5.*",
         "angular-mocks": "1.5.*",
-        "jQuery": "^2.*",
+        "jquery": "^2.*",
         "animate.css": "~3.5.2"
     },
     "scripts": {
