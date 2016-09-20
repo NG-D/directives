@@ -25,6 +25,7 @@ script:
   - gulp b
 after_script:
   - cd dist
+  - cp -rf ../../../libs/ .
   - git init
   - git config user.name "LinJieLinLin"
   - git config user.email "993353454@qq.com"
