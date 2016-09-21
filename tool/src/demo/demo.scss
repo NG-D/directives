@@ -111,8 +111,9 @@ button,
         background-color: #fff;
         border-radius: 0.2%;
         height: 100%;
-        padding: 1% 2%;
+        padding: 4% 4%;
         margin-bottom: 2%;
+        position: relative;
     }
 }
 
@@ -143,4 +144,32 @@ body {
 .h20 {
     width: 100%;
     height: 20px;
+}
+
+//dialog
+.d-1 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border: 1px solid #f2f2f2;
+    border-radius: 6px;
+    width: 200px;
+    background-color: #fff;
+    .d-head {
+        padding: 5px 10px;
+        font-size: 18px;
+        background-color: #f8f8f8;
+    }
+    .d-body {
+        min-height: 100px;
+    }
+    .d-footer {
+        background-color: #f8f8f8;
+        padding: 5px 10px;
+    }
+}
+
+.d-2 {
+    @extend .d-1;
+    position: absolute;
 }

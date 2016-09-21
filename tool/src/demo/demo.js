@@ -99,8 +99,8 @@ directive.controller('demoCtrl', function($scope, $timeout, $http, lazy) {
         };
         //drag
         $scope.dragConfig = {
-            dragClass: 'dialog-head',
-            dragAll: true
+            dragClass: 'd-head',
+            dragAll: true,
         };
         $scope.imgs = ['demo/1.png', 'demo/2.png', 'demo/3.png'];
         $scope.imgs1 = ['demo/2.png', 'demo/1.png'];

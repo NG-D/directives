@@ -103,7 +103,7 @@ directive.controller('demoCtrl', ['$scope', '$timeout', '$http', 'lazy', functio
         };
         //drag
         $scope.dragConfig = {
-            dragClass: 'dialog-head',
+            dragClass: 'd-head',
             dragAll: true
         };
         $scope.imgs = ['demo/1.png', 'demo/2.png', 'demo/3.png'];
