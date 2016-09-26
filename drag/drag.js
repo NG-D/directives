@@ -60,8 +60,8 @@ directive.directive('lDrag', ['$document', function ($document) {
             $scope.dragAll = false;
             if (position === 'static' || !position) {
                 console.log(position);
-                $attr.position = "relative";
-                position = 'relative';
+                $attr.position = "absolute";
+                position = 'absolute';
                 element.css({ 'left': 0, 'top': 0 });
             }
 
@@ -96,11 +96,6 @@ directive.directive('lDrag', ['$document', function ($document) {
                         mouseY = event.pageY;
                         parentSize.height = $(element).parent()[0].clientHeight;
                         parentSize.width = $(element).parent()[0].clientWidth;
-                    } else {
-                        mouseX = event.pageX;
-                        mouseY = event.pageY;
-                        parentSize.height = $(element).parent().height();
-                        parentSize.width = $(element).parent().width();
                     }
                     elementSize.width = element[0].clientWidth;
                     elementSize.height = element[0].clientHeight;

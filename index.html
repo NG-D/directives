@@ -28,7 +28,7 @@
                 <span>My Github</span>
             </a>
         </div>
-        <div ng-repeat="n in directives track by $index" ng-click="select($index,'#r')" ng-class="{cur:$index==page}">
+        <div ng-repeat="n in directives track by $index" ng-click="f.select($index,'#r')" ng-class="{cur:$index==page}">
             <span ng-bind="n.name"></span>
         </div>
     </div>
@@ -46,32 +46,41 @@
             <l-slide-img imgs="imgs" c="slideConfig"></l-slide-img>
         </section>
         <section id="sec-2">
-            <div class="l-drag d-1" c="dragConfig">
+            <div class="drag-button">
+                <button l-ripple class="b-blue" ng-click="f.dialog('fixed',true)">fixed dialog</button>
+            </div>
+            <div class="drag-button">
+                <l-ripple class="button b-red" ng-click="f.dialog('position',true)">position dialog</l-ripple>
+            </div>
+            <div class="drag-button">
+                <div class="button b-black l-ripple" ng-click="f.dialog('relative',true)">relative dialog</div>
+            </div>
+            <div ng-show="d.dialog.fixed" class="l-drag d-1" c="dragConfig">
                 <div class="d-head">
                     <div class="f-l">这里是标题</div>
-                    <div class="f-r">X</div>
+                    <div class="d-close" ng-click="d.dialog.fixed=false;">X</div>
                     <div class="clear"></div>
                 </div>
                 <div class="d-body">你好！</div>
                 <div class="d-footer">底部</div>
             </div>
             <div class="h20"></div>
-            <div l-drag class="b-g d-2" c="dragConfig">
+            <div ng-show="d.dialog.position" l-drag class="b-g d-2" c="dragConfig">
                 <div class="d-head">
                     <div class="f-l">这里是标题</div>
-                    <div class="f-r">X</div>
+                    <div class="d-close" ng-click="d.dialog.position=false;">X</div>
                     <div class="clear"></div>
                 </div>
-                <div>你好！</div>
+                <div class="d-body">你好！</div>
             </div>
             <div class="h20"></div>
-            <l-drag c="dragConfig">
+            <l-drag c="dragConfig" class="d-3" ng-show="!d.dialog.relative">
                 <div class="d-head">
                     <div class="f-l">这里是标题</div>
-                    <div class="f-r">X</div>
+                    <div class="d-close">X</div>
                     <div class="clear"></div>
                 </div>
-                <div>你好！</div>
+                <div class="d-body">你好！</div>
             </l-drag>
         </section>
         <section id="sec-3">

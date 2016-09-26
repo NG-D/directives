@@ -1,6 +1,15 @@
 var directive = angular.module('demo', []);
 directive.controller('demoCtrl', function($scope, $timeout, $http, lazy) {
-    let aaa=123;
+    $scope.d = {
+        //drag弹出框
+        dialog: {},
+    };
+    $scope.f = {
+        //切换TAB
+        select: function() {},
+        //打开dialog
+        dialog: function() {},
+    };
     var init = function() {
         //page
         $scope.page = +localStorage.page || 0;
@@ -117,7 +126,7 @@ directive.controller('demoCtrl', function($scope, $timeout, $http, lazy) {
         ];
         if ($scope.page) {
             $timeout(function() {
-                $scope.select($scope.page, '#r');
+                $scope.f.select($scope.page, '#r');
                 $scope.listenerScroll();
             }, 1000);
         } else {
@@ -125,8 +134,12 @@ directive.controller('demoCtrl', function($scope, $timeout, $http, lazy) {
             $scope.listenerScroll();
         }
     };
-    //切换TAB
-    $scope.select = function(argIndex, argTarget) {
+    /**
+     * [select description]
+     * @param  {[type]} argIndex  [index]
+     * @param  {[type]} argTarget [id]
+     */
+    $scope.f.select = function(argIndex, argTarget) {
         $scope.page = argIndex;
         localStorage.page = argIndex;
         if (argTarget) {
@@ -140,6 +153,15 @@ directive.controller('demoCtrl', function($scope, $timeout, $http, lazy) {
                 $(argTarget).stop().animate({ scrollTop: temTop }, 'slow');
             }
         }
+    };
+    /**
+     * [dialog description]
+     * @param  {[type]} argType [类型]
+     * @param  {[type]} argData [true 显示，false隐藏]
+     * @return {[type]}         [description]
+     */
+    $scope.f.dialog = function(argType, argData) {
+        $scope.d.dialog[argType] = argData || false;
     };
     //滚动监听
     $scope.listenerScroll = function() {

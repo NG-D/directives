@@ -47,6 +47,19 @@ button,
     }
 }
 
+.drag-button {
+    display: inline-block;
+    margin-left: 20px;
+    color: #fff;
+    >button {
+        color: #fff;
+    }
+    .ripple-p {
+        padding: 20px 30px;
+        border-radius: 10px;
+    }
+}
+
 .lazy-img {
     font-size: 14px;
     .img {
@@ -154,14 +167,24 @@ body {
     border: 1px solid #f2f2f2;
     border-radius: 6px;
     width: 200px;
+    z-index: 1000;
     background-color: #fff;
+    .d-close {
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        cursor: pointer;
+        transform: translate(0, -50%);
+    }
     .d-head {
         padding: 5px 10px;
         font-size: 18px;
         background-color: #f8f8f8;
+        position: relative;
     }
     .d-body {
         min-height: 100px;
+        padding: 5px 10px;
     }
     .d-footer {
         background-color: #f8f8f8;
@@ -172,4 +195,10 @@ body {
 .d-2 {
     @extend .d-1;
     position: absolute;
+}
+
+.d-3 {
+    @extend .d-1;
+    position: absolute;
+    display: block;
 }

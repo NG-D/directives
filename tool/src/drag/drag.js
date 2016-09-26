@@ -45,8 +45,8 @@ if (!$("#tpl-drag").length) {$("body").prepend(cssTpl);}
             $scope.dragAll = false;
             if (position === 'static' || !position) {
                 console.log(position);
-                $attr.position = "relative";
-                position = 'relative';
+                $attr.position = "absolute";
+                position = 'absolute';
                 element.css({ 'left': 0, 'top': 0 });
             }
 
@@ -81,11 +81,6 @@ if (!$("#tpl-drag").length) {$("body").prepend(cssTpl);}
                         mouseY = event.pageY;
                         parentSize.height = $(element).parent()[0].clientHeight;
                         parentSize.width = $(element).parent()[0].clientWidth;
-                    } else {
-                        mouseX = event.pageX;
-                        mouseY = event.pageY;
-                        parentSize.height = $(element).parent().height();
-                        parentSize.width = $(element).parent().width();
                     }
                     elementSize.width = element[0].clientWidth;
                     elementSize.height = element[0].clientHeight;
