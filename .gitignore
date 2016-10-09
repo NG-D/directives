@@ -4,3 +4,5 @@
 /tool/gulp
 /.idea
 /tool/src/node_modules
+/doc
+/package.json
