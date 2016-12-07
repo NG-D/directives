@@ -3,10 +3,10 @@
 var lin = {};
 //时间
 /**
- * [前零补充]
- * @param  {[type]} argData [数据]
- * @param  {[type]} argNum  [长度]
- * @return {[type]}         [description]
+ * 前零补充
+ * @param  {string} argData [数据]
+ * @param  {numstring} argNum  [长度]
+ * @return {string}         [返回长度对应的字符串]
  */
 lin.fillZero = function (argData, argNum) {
     var str = '' + argData,
@@ -241,7 +241,7 @@ Date.prototype._diff = function (interval, objDate) {
         return undefined;
     }
     switch (interval) {
-        //计算秒差                                                       
+        //计算秒差                                                        
         case 's':
             return parseInt((objDate - this) / 1000);
         //计算分差

@@ -1,6 +1,6 @@
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /**
  default:为空时使用默认图，为图片地址时使用地址里的图片
@@ -30,7 +30,6 @@ directive.directive('img', ['$document', function ($document) {
                              * [stop 停止错误监听]
                              * @return {[type]} [description]
                              */
-
                             var stop = function stop() {
                                 $element.off('error', errorImg);
                             };
