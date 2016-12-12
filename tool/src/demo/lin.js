@@ -1,4 +1,12 @@
 var lin = {};
+//正则收集
+lin.regExp = {
+    // http:// https://匹配
+    http: /[a-zA-z]+:\/\/*/,
+    //域名匹配 eg:http://www.baidu.com
+    host: /[a-zA-z]+:\/\/[^s\/]*/,
+    
+};
 //时间
 /**
  * 前零补充
