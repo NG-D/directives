@@ -28,6 +28,9 @@
                 <span>My Github</span>
             </a>
         </div>
+        <div>
+            <a href="/doc" target="_blank">js函数</a>
+        </div>
         <div ng-repeat="n in directives track by $index" ng-click="f.select($index,'#r')" ng-class="{cur:$index==page}">
             <span ng-bind="n.name"></span>
         </div>
@@ -136,6 +139,7 @@
     <!-- build:js demo/demo.min.js -->
     <!-- js -->
     <script src="demo/demo.js"></script>
+    <script src="demo/lin.js"></script>
     <!-- directive -->
     <script src="angular-placeholder/placeholder-ie.js"></script>
     <script src="slide-img/slide-img.js"></script>

@@ -1,91 +1,117 @@
-var lin = {};
-//正则收集
-lin.regExp = {
-    // http:// https://匹配
-    http: /[a-zA-z]+:\/\/*/,
-    //域名匹配 eg:http://www.baidu.com
-    host: /[a-zA-z]+:\/\/[^s\/]*/,
-    
-};
-//时间
-/**
- * 前零补充
- * @param  {string} argData [数据]
- * @param  {numstring} argNum  [长度]
- * @return {string}         [返回长度对应的字符串]
- */
-lin.fillZero = function(argData, argNum) {
-    var str = '' + argData,
-        len = argNum - str.length;
-    for (var i = 0; i < len; i++) {
-        str = '0' + str;
-    }
-    return str;
-};
+var lin = (function() {
+    var f = {},
+        d = {};
+    //正则收集
+    d.regExp = {
+        // http:// https://匹配
+        http: /[a-zA-z]+:\/\/*/,
+        //域名匹配 eg:http://www.baidu.com
+        host: /[a-zA-z]+:\/\/[^s\/]*/,
+        //清两边空格
+        spaceBoth: /(^\s*)|(\s*$)/g,
+        // 合并多个空白为一个空白
+        spaceCoalition: /\s+/g,
+        // 保留数字
+        getNum: /[^\d]/g,
+        // 保留中文
+        getCn: /[^\u4e00-\u9fa5\uf900-\ufa2d]/g,
+    };
 
-//位置
-/**
- * [获取元素相对于这个页面的X坐标]
- * @param  {[type]} argE [description]
- * @return {[type]}      [description]
- */
-lin.pageX = function(argE) {
-    return argE.getBoundingClientRect().left + (document.documentElement.scrollLeft || document.body.scrollLeft);
-};
-/**
- * [获取元素相对于这个页面的Y坐标]
- * @param  {[type]} argE [description]
- * @return {[type]}      [description]
- */
-lin.pageY = function(argE) {
-    return argE.getBoundingClientRect().top + (document.documentElement.scrollTop || document.body.scrollTop);
-};
-/**
- * 判断是否是IE
- * @return {Boolean} [description]
- */
-lin.isIE = function() {
-    if (!!window.ActiveXObject || 'ActiveXObject' in window) {
-        return true;
-    } else {
-        return false;
-    }
-};
+    /**
+     * 前零补充
+     * @param  {string} argData [数据]
+     * @param  {numstring} argNum  [长度]
+     * @return {string}         [返回长度对应的字符串]
+     */
+    f.fillZero = function(argData, argNum) {
+        var str = '' + argData,
+            len = argNum - str.length;
+        for (var i = 0; i < len; i++) {
+            str = '0' + str;
+        }
+        return str;
+    };
 
-// 清除两边的空格
-String.prototype._trim = function() {
-    return this.replace(/(^\s*)|(\s*$)/g, '');
-};
-// 合并多个空白为一个空白
-String.prototype._resetBlank = function() {
-    var regEx = /\s+/g;
-    return this.replace(regEx, ' ');
-};
-// 保留数字
-String.prototype._getNum = function() {
-    var regEx = /[^\d]/g;
-    return this.replace(regEx, '');
-};
-// 保留中文
-String.prototype._getCN = function() {
-    var regEx = /[^\u4e00-\u9fa5\uf900-\ufa2d]/g;
-    return this.replace(regEx, '');
-};
-// String转化为Number
-String.prototype._toInt = function() {
-    return isNaN(parseInt(this)) ? this.toString() : parseInt(this);
-};
-// 得到字节长度
-String.prototype._getLen = function() {
-    var regEx = /^[\u4e00-\u9fa5\uf900-\ufa2d]+$/;
-    if (regEx.test(this)) {
-        return this.length * 2;
-    } else {
-        var oMatches = this.match(/[\x00-\xff]/g);
-        var oLength = this.length * 2 - oMatches.length;
-        return oLength;
-    }
-};
+    /**
+     * [获取元素相对于这个页面的X坐标]
+     * @param  {[type]} argE [description]
+     * @return {[type]}      [description]
+     */
+    f.pageX = function(argE) {
+        return argE.getBoundingClientRect().left + (document.documentElement.scrollLeft || document.body.scrollLeft);
+    };
+
+    /**
+     * [获取元素相对于这个页面的Y坐标]
+     * @param  {[type]} argE [description]
+     * @return {[type]}      [description]
+     */
+    f.pageY = function(argE) {
+        return argE.getBoundingClientRect().top + (document.documentElement.scrollTop || document.body.scrollTop);
+    };
+
+    /**
+     * 判断是否是IE
+     * @return {Boolean} [description]
+     */
+    f.isIE = function() {
+        if (!!window.ActiveXObject || 'ActiveXObject' in window) {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+    //String相关
+    /**
+     * String.prototype清除两边的空格 ' aa    ' to 'aa'
+     * @return {[type]} [description]
+     */
+    String.prototype._spaceBoth = function() {
+        return this.replace(d.regExp.spaceBoth, '');
+    };
+
+    /**
+     * String.prototype合并多个空白为一个空白 'a     a' to 'a a'
+     * @return {[type]} [description]
+     */
+    String.prototype._spaceCoalition = function() {
+        return this.replace(d.regExp.spaceCoalition, ' ');
+    };
+
+    /**
+     * String.prototype只保留数字 '1ab2c3' to '123'
+     * @return {[type]} [description]
+     */
+    String.prototype._getNum = function() {
+        return this.replace(d.regExp.getNum, '');
+    };
+
+    /**
+     * String.prototype只保留中文 '你好，hello' to '你好'
+     * @return {[type]} [description]
+     */
+    String.prototype._getCn = function() {
+        return this.replace(d.regExp.getCn, '');
+    };
+
+    /**
+     * String.prototype得到字节长度
+     * @return {[type]} [description]
+     */
+    String.prototype._getLen = function() {
+        var regEx = /^[\u4e00-\u9fa5\uf900-\ufa2d]+$/;
+        if (regEx.test(this)) {
+            return this.length * 2;
+        } else {
+            var oMatches = this.match(/[\x00-\xff]/g);
+            var oLength = this.length * 2 - oMatches.length;
+            return oLength;
+        }
+    };
+    return { f: f, d: d };
+})();
+
 // 限定字节长度
 String.prototype._limitLen = function(len, suffix) {
     if (this._getLen() < len) return this.toString();
