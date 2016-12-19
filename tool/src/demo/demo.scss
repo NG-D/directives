@@ -159,6 +159,13 @@ body {
     height: 20px;
 }
 
+//l-img
+.l-img {
+    >div {
+        border: 1px solid red;
+    }
+}
+
 //dialog
 .d-1 {
     position: fixed;

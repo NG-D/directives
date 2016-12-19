@@ -101,7 +101,7 @@ directive.directive('lImg', ['$document', function ($document) {
         restrict: 'E',
         replace: true,
         transclude: true,
-        template:'<div ng-style="divStyle" class="ng-img-div" ng-class="divClass"><style type="text/css">.ng-img-div{min-width:16px;min-height:9px;width:160px;height:90px;overflow:hidden;position:relative}.ng-img{min-width:auto;height:auto;width:100%;position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);transform:translate(-50%,-50%);display:inline-block;vertical-align:top}</style></div>',
+        template:'<div ng-style="divStyle" class="ng-img-div" ng-class="divClass"></div>',
         scope: {
             c: '='
         },
