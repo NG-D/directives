@@ -1,0 +1,13 @@
+{
+    "name": "src",
+    "version": "1.0.0",
+    "description": "for es6",
+    "main": "index.js",
+    "repository": "no",
+    "scripts": {},
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "babel-preset-es2015": "^6.14.0"
+    }
+}
