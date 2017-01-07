@@ -1,6 +1,6 @@
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /**
 c.dragAll:监听所有有class的子元素
@@ -24,7 +24,7 @@ directive.directive('lDrag', ['$document', function ($document) {
             //cssStart
             var cssTpl = '<style type="text/css" id="tpl-drag"></style>';
             if (!$("#tpl-drag").length) {
-                $("body").prepend(cssTpl);
+                $("head").prepend(cssTpl);
             }
             //cssEnd
             //鼠标移动x

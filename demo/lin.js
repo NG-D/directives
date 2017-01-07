@@ -275,7 +275,7 @@ Date.prototype._diff = function (interval, objDate) {
         return undefined;
     }
     switch (interval) {
-        //计算秒差                                                       
+        //计算秒差                                                        
         case 's':
             return parseInt((objDate - this) / 1000);
         //计算分差

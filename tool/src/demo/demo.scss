@@ -47,6 +47,10 @@ button,
     }
 }
 
+.i-cb {
+    @include iCB();
+}
+
 .drag-button {
     display: inline-block;
     margin-left: 20px;
@@ -161,8 +165,11 @@ body {
 
 //l-img
 .l-img {
+    @include iCB();
     >div {
         border: 1px solid red;
+        float: left;
+        margin: 20px;
     }
 }
 
@@ -179,12 +186,14 @@ body {
     .d-close {
         position: absolute;
         top: 50%;
-        right: 5px;
+        right: 10px;
         cursor: pointer;
         transform: translate(0, -50%);
+        font-size: 25px;
+        font-weight: bold;
     }
     .d-head {
-        padding: 5px 10px;
+        padding: 10px 15px;
         font-size: 18px;
         background-color: #f8f8f8;
         position: relative;

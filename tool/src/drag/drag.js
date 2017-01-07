@@ -19,7 +19,7 @@ directive.directive('lDrag', function($document) {
         link: function($scope, element, $attr) {
             //cssStart
  var cssTpl='<style type="text/css" id="tpl-drag"></style>';
-if (!$("#tpl-drag").length) {$("body").prepend(cssTpl);}
+if (!$("#tpl-drag").length) {$("head").prepend(cssTpl);}
 //cssEnd
             //鼠标移动x
             var mouseX = 0,

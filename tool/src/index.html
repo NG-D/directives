@@ -61,7 +61,7 @@
             <div ng-show="d.dialog.fixed" class="l-drag d-1" c="dragConfig">
                 <div class="d-head">
                     <div class="f-l">这里是标题</div>
-                    <div class="d-close" ng-click="d.dialog.fixed=false;">X</div>
+                    <div class="d-close" ng-click="d.dialog.fixed=false;">×</div>
                     <div class="clear"></div>
                 </div>
                 <div class="d-body">你好！</div>
@@ -71,16 +71,16 @@
             <div ng-show="d.dialog.position" l-drag class="b-g d-2" c="dragConfig">
                 <div class="d-head">
                     <div class="f-l">这里是标题</div>
-                    <div class="d-close" ng-click="d.dialog.position=false;">X</div>
+                    <div class="d-close" ng-click="d.dialog.position=false;">×</div>
                     <div class="clear"></div>
                 </div>
                 <div class="d-body">你好！</div>
             </div>
             <div class="h20"></div>
-            <l-drag c="dragConfig" class="d-3" ng-show="!d.dialog.relative">
+            <l-drag c="dragConfig" class="d-3" ng-show="d.dialog.relative">
                 <div class="d-head">
                     <div class="f-l">这里是标题</div>
-                    <div class="d-close">X</div>
+                    <div class="d-close" ng-click="d.dialog.relative=false;">×</div>
                     <div class="clear"></div>
                 </div>
                 <div class="d-body">你好！</div>
@@ -93,24 +93,14 @@
             <b>l-img</b>
             <div class="l-img">
                 <l-img c="{img:lazeImg[0],divStyle:{width:'160',height:'90px'},auto:true}" alt="'默认图'"></l-img>
-                <br>
                 <l-img c="{img:'sb',default:'demo/1.jpg',divStyle:{width:'160px',height:'90px'},title:'这是一张默认图'}" alt="'默认图'"></l-img>
-                <br>
                 <l-img c="{img:'https://linjielinlin.github.io/static/img/6.jpg',default:'demo/1.jpg',divStyle:{width:'160px',height:'90px'},title:'二'}" ng-src="" alt=""></l-img>
-                <br>
                 <l-img c="{img:lazeImg[0],default:'demo/1.jpg',divStyle:{width:'160px',height:'90px'},title:'三'}" alt=""></l-img>
-                <b>img little</b>
-                <div ng-repeat="a in [1,1,1] track by $index">
-                    <img src="{{lazeImg[0]}}" c="" alt="{{a}}">
-                </div>
             </div>
         </section>
         <section id="sec-4" class="lazy-img">
             <p>lazyImg</p>
             <l-lazy-img src="i" class="img" c="lazeImgConfig" ng-repeat="i in lazeImg"></l-lazy-img>
-            <l-lazy-img src="lazeImg[0]" c="lazeImgConfig" class="img"></l-lazy-img>
-            <l-lazy-img src="lazeImg[1]" c="lazeImgConfig" class="img"></l-lazy-img>
-            <l-lazy-img src="lazeImg[2]" c="lazeImgConfig" class="img"></l-lazy-img>
             <l-lazy-img src="lazeImg[0]" c="lazeImgConfig" class="img"></l-lazy-img>
             <l-lazy-img src="lazeImg[1]" c="lazeImgConfig" class="img"></l-lazy-img>
             <l-lazy-img src="lazeImg[2]" c="lazeImgConfig" class="img"></l-lazy-img>
@@ -131,7 +121,10 @@
             <button ng-click="testRepeat1()">减{{rData.length}}</button>
             <div ng-repeat="a in rData track by $index">{{a.time}}+{{a.name}}</div>
         </section>
-        <section id="sec-7"></section>
+        <section id="sec-7">
+            <p>音乐播放</p>
+            <l-music></l-music>
+        </section>
         <section id="sec-8"></section>
         <section id="sec-9"></section>
     </div>

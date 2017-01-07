@@ -18,10 +18,13 @@
 
 .mc-body {
     float: left;
-    width: 100px;
+    width: 150px;
     height: 100%;
     background-color: mediumpurple;
     color: #fff;
+    .fa{
+        cursor: pointer;
+    }
     .title {
         padding: 8px 0;
         width: 100%;

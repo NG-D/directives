@@ -1,6 +1,6 @@
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 try {
     if ((typeof directive === 'undefined' ? 'undefined' : _typeof(directive)) !== 'object') {
@@ -16,7 +16,7 @@ directive.directive('lRipple', function () {
             //cssStart
             var cssTpl = '<style type="text/css" id="tpl-ripple">.ripple-p{border:none;outline:0;cursor:pointer;overflow:hidden;display:inline-block;-webkit-transform:translate(0);-moz-transform:translate(0);-ms-transform:translate(0);-o-transform:translate(0);transform:translate(0)}.ripple{position:absolute;background:rgba(0,0,0,.5);border-radius:100%;-webkit-transform:scale(0);-moz-transform:scale(0);-ms-transform:scale(0);-o-transform:scale(0);transform:scale(0);pointer-events:none}.ripple.show{-webkit-animation:ripple 1s ease-out;-moz-animation:ripple 1s ease-out;-o-animation:ripple 1s ease-out;animation:ripple 1s ease-out}@-webkit-keyframes ripple{to{-webkit-transform:scale(2);transform:scale(2);opacity:0}}@-moz-keyframes ripple{to{-moz-transform:scale(2);transform:scale(2);opacity:0}}@-o-keyframes ripple{to{-o-transform:scale(2);transform:scale(2);opacity:0}}@keyframes ripple{to{-webkit-transform:scale(2);-moz-transform:scale(2);-o-transform:scale(2);transform:scale(2);opacity:0}}</style>';
             if (!$("#tpl-ripple").length) {
-                $("body").prepend(cssTpl);
+                $("head").prepend(cssTpl);
             }
             //cssEnd
             e.addClass('ripple-p');

@@ -35,7 +35,7 @@ directive.controller('demoCtrl', ['$scope', '$timeout', '$http', 'lazy', functio
         }, {
             name: 'repeat'
         }, {
-            name: 'NULL'
+            name: 'musicPlayer'
         }, {
             name: 'NULL'
         }, {
@@ -123,7 +123,7 @@ directive.controller('demoCtrl', ['$scope', '$timeout', '$http', 'lazy', functio
             // url: 'demo/1.png',
             style: { height: '100%', width: '100%' }
         };
-        $scope.lazeImg = ['http://u.kuxiao.cn/I5I03A==', 'http://u.kuxiao.cn/diDQd1==', 'http://u.kuxiao.cn/aGuJtx=='];
+        $scope.lazeImg = ['https://linjielinlin.github.io/static/img/头像.png', 'https://linjielinlin.github.io/static/img/微信打赏.png', 'https://linjielinlin.github.io/static/img/6.jpg'];
         if ($scope.page) {
             $timeout(function () {
                 $scope.f.select($scope.page, '#r');

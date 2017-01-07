@@ -1,6 +1,6 @@
 <div>
-    <audio controls>
-        <source src="/music/纯/莫失莫忘.mp3" type="audio/mpeg">
+    <audio id="{{id}}">
+        <source src="https://linjielinlin.github.io/static/music/%E7%BA%AF/%E8%8E%AB%E5%A4%B1%E8%8E%AB%E5%BF%98.mp3" type="audio/mpeg">
         <span>你的浏览器不支持</span>
     </audio>
     <div class="mc-player">
@@ -11,12 +11,12 @@
         </div>
         <div class="mc-body p-r">
             <div class="title text-of">
-                莫失莫忘
+                <span ng-bind="m.name"></span><span ng-bind="m.currentTime|date:'mm:ss'"></span><span ng-bind="m.duration|date:'mm:ss'"></span>
             </div>
             <div class="ctrl">
                 <div class="ctrl-a">
                     <i class="fa fa-step-backward" aria-hidden="true"></i>
-                    <div class="play" ng-click="play()">
+                    <div class="play" ng-click="f.play()">
                         <i class="fa fa-play" aria-hidden="true" ng-hide="m.play"></i>
                         <i class="fa fa-pause" aria-hidden="true" ng-show="m.play"></i>
                     </div>

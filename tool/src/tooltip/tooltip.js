@@ -17,7 +17,7 @@ directive.directive('lTooltip', function($document) {
         controller: function($scope, $element, $attrs) {
             //cssStart
  var cssTpl='<style type="text/css" id="tpl-tooltip"></style>';
-if (!$("#tpl-tooltip").length) {$("body").prepend(cssTpl);}
+if (!$("#tpl-tooltip").length) {$("head").prepend(cssTpl);}
 //cssEnd
             if ($scope.c) {
                 angular.forEach($scope.c, function(value, key) {

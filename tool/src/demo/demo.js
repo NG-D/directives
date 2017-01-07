@@ -33,7 +33,7 @@ directive.controller('demoCtrl', function($scope, $timeout, $http, lazy) {
         }, {
             name: 'repeat',
         }, {
-            name: 'NULL',
+            name: 'musicPlayer',
         }, {
             name: 'NULL',
         }, {
@@ -120,9 +120,9 @@ directive.controller('demoCtrl', function($scope, $timeout, $http, lazy) {
             style: { height: '100%', width: '100%' },
         };
         $scope.lazeImg = [
-            'http://u.kuxiao.cn/I5I03A==',
-            'http://u.kuxiao.cn/diDQd1==',
-            'http://u.kuxiao.cn/aGuJtx==',
+            'https://linjielinlin.github.io/static/img/头像.png',
+            'https://linjielinlin.github.io/static/img/微信打赏.png',
+            'https://linjielinlin.github.io/static/img/6.jpg',
         ];
         if ($scope.page) {
             $timeout(function() {

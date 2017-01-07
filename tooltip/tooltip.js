@@ -1,6 +1,6 @@
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 try {
     if ((typeof directive === 'undefined' ? 'undefined' : _typeof(directive)) !== 'object') {
@@ -22,7 +22,7 @@ directive.directive('lTooltip', ['$document', function ($document) {
             //cssStart
             var cssTpl = '<style type="text/css" id="tpl-tooltip"></style>';
             if (!$("#tpl-tooltip").length) {
-                $("body").prepend(cssTpl);
+                $("head").prepend(cssTpl);
             }
             //cssEnd
             if ($scope.c) {
