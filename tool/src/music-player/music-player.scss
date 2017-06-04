@@ -65,9 +65,9 @@ $mpHeight:50px;
 .mp {
     width: 400px;
     position: fixed;
-    z-index: 0;
+    z-index: 1000;
     left: 0;
-    top: 0;
+    top: 50%;
     background-color: #12232E;
     height: $mpHeight;
     color: #fff;
@@ -80,7 +80,7 @@ $mpHeight:50px;
         height: 30px;
         margin-top: 10px;
         margin-bottom: 10px;
-        padding-left: 35px;
+        padding-left: 40px;
         padding-right: 80px;
         position: relative;
     }
@@ -123,16 +123,16 @@ $mpHeight:50px;
         width: 100%;
         height: 4px;
         background-color: #595959;
-        >div {
+        >div:first-child {
             position: absolute;
             left: 0;
-            z-index: 0;
+            z-index: 1;
             height: 100%;
-            width: 10px;
+            width: 0px;
             background-color: #00BFB8;
             &:before {
                 position: absolute;
-                right: 0;
+                right: -5px;
                 top: 50%;
                 z-index: 1;
                 transform: translate(0, -50%);
@@ -142,6 +142,14 @@ $mpHeight:50px;
                 background-color: #00BFB8;
                 content: "";
             }
+        }
+        .load{
+            position: absolute;
+            left: 0;
+            z-index: 0;
+            height: 100%;
+            width: 0px;
+            background-color: #9c9c9c;
         }
     }
     &-toolbar {
@@ -153,8 +161,9 @@ $mpHeight:50px;
             float: left;
             line-height: 30px;
         }
-        i{
-            padding: 0 5px;
+        i {
+            display: inline-block;
+            min-width: 30px;
         }
     }
     &-close {
@@ -171,6 +180,51 @@ $mpHeight:50px;
         height: 100%;
         line-height: $mpHeight;
         cursor: pointer;
+    }
+    &-volume {
+        position: relative;
+        .volume-progress {
+            display: none;
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            z-index: 0;
+            cursor: pointer;
+            height: 110px;
+            width: 20px;
+            background-color: #03080B;
+            >div {
+                position: absolute;
+                left: 50%;
+                bottom: 0px;
+                z-index: 0;
+                transform: translate(-50%, 0%);
+                height: 100px;
+                width: 4px;
+                margin: auto;
+                background-color: #00BFB8;
+                &:before {
+                    position: absolute;
+                    top: -5px;
+                    left: 50%;
+                    z-index: 1;
+                    transform: translate(-50%, 0);
+                    height: 10px;
+                    width: 10px;
+                    border-radius: 100%;
+                    background-color: #00BFB8;
+                    content: "";
+                }
+            }
+            &:hover {
+                display: block;
+            }
+        }
+        &:hover {
+            .volume-progress {
+                display: block;
+            }
+        }
     }
 }
 

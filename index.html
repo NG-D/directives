@@ -37,6 +37,47 @@
     </div>
     <div class="R ng-cloak" id="r">
         <section id="sec-0">
+            <div class="mp" id="linPlayer">
+                <audio id="mpMusicPlayer">
+                    <!-- <source src="https://linjielinlin.github.io/static/music/%E7%BA%AF/%E8%8E%AB%E5%A4%B1%E8%8E%AB%E5%BF%98.mp3" type="audio/mpeg"><span>你的浏览器不支持</span> -->
+                    <source src="https://fs.dev.gdy.io/usr/api/dload?fid=58783ea1d624d30f0abb7339&token=5933BB8ED624D3023E540BE6" type="audio/mpeg"><span>你的浏览器不支持</span>
+                    <!-- <source src="http://localhost:1111/static/music/%E7%BA%AF/%E8%8E%AB%E5%A4%B1%E8%8E%AB%E5%BF%98.mp3" type="audio/mpeg"><span>你的浏览器不支持</span> -->
+                </audio>
+                <div class="mp-body">
+                    <div class="mp-face">
+                        <img src="" alt="" />
+                    </div>
+                    <div class="mp-content">
+                        <div class="mp-title text-of">
+                            <span class="title">暂无数据</span>
+                            <div class="mp-time">
+                                <span class="currentTime">00:00</span>
+                                <span>/</span>
+                                <span class="duration">00:00</span>
+                            </div>
+                        </div>
+                        <div class="mp-progress">
+                            <div></div>
+                            <div class="load"></div>
+                        </div>
+                    </div>
+                    <div class="mp-toolbar">
+                        <div class="mp-play">
+                            <i class="fa fa-play" aria-hidden="true"></i>
+                            <i class="fa fa-pause hide" aria-hidden="true"></i>
+                        </div>
+                        <div class="mp-volume">
+                            <div class="volume-progress">
+                                <div></div>                                
+                            </div>
+                            <i class="fa fa-volume-off hide" aria-hidden="true"></i>
+                            <i class="fa fa-volume-down hide" aria-hidden="true"></i>
+                            <i class="fa fa-volume-up" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mp-close">×</div>
+            </div>
             <input type="text" ng-model="d.user" placeholder="请输入用户名" />
             <br>
             <input type="password" ng-model="d.pwd" placeholder="请输入密码" />

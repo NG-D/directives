@@ -225,5 +225,19 @@ directive.controller('demoCtrl', function($scope, $timeout, $http, lazy) {
         }
         last = 0;
     };
+    //new repeat
+    $scope.repeatData = [];
+    for (var i = 0; i < 5000; i++) {
+        $scope.repeatData.push({
+            id: i,
+            name: "Item " + i,
+            time: new Date(),
+        });
+    }
+    $scope.f.changeRepeat = function(){
+        
+    }
+
+
     init();
 });

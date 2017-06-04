@@ -218,3 +218,36 @@ body {
     position: absolute;
     display: block;
 }
+
+//repeat
+.repeat {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    left: 10px;
+    bottom: 10px;
+    z-index: 1;
+    .repeat-list {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        overflow: auto;
+    }
+    .repeat-item {
+        min-height: 80px;
+        width: 100%;
+    }
+}
+
+.tool-bar {
+    position: fixed;
+    top: 0;
+    left: 10px;
+    z-index: 10;
+}
