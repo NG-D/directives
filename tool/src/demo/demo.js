@@ -1,4 +1,5 @@
 var directive = angular.module('demo', []);
+var player;
 directive.controller('demoCtrl', function($scope, $timeout, $http, lazy) {
     $scope.d = {
         //drag弹出框
@@ -11,6 +12,12 @@ directive.controller('demoCtrl', function($scope, $timeout, $http, lazy) {
         dialog: function() {},
     };
     var init = function() {
+        player = $().linMusic({
+            src: 'https://fs.dev.gdy.io/usr/api/dload?fid=58783ea1d624d30f0abb7339&token=5933BB8ED624D3023E540BE6',
+            name: '七夕-邓丽欣',
+            autoPlay: true,
+        });
+        console.log(player);
         //page
         $scope.page = +localStorage.page || 0;
         $scope.timeoutImg = '我不是图片';
@@ -234,8 +241,8 @@ directive.controller('demoCtrl', function($scope, $timeout, $http, lazy) {
             time: new Date(),
         });
     }
-    $scope.f.changeRepeat = function(){
-        
+    $scope.f.changeRepeat = function() {
+
     }
 
 
